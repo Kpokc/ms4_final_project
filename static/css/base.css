@@ -3,12 +3,17 @@ html {
 }
 
 body {
-    /* background: url('/media/baby_girl_700x.png') no-repeat center center fixed;
-    background-size: cover; */
+	background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;
+	background-size: cover;
     height: calc(100vh - 164px);
     color: #555;
-    font-family: 'Lato';
+    font-family: "Lato";
 }
+
+/* .nav-link {
+    display: block;
+    padding: 0.5rem 0.5rem! important;
+} */
 
 /* from Bulma */
 .icon {
@@ -25,7 +30,10 @@ body {
 
 .main-logo-link {
     width: fit-content;
-    margin: 0 auto;
+}
+
+.logo-img {
+    filter: drop-shadow(2px 2px 0px lightgrey);
 }
 
 .shop-now-button {
@@ -57,7 +65,11 @@ body {
     border: 1px solid black !important;
 }
 
-/* -------------------------------- Media Queries */
+.bg-black {
+    background: #000 !important;
+}
+
+/* --------------------------------- Media queries */
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
