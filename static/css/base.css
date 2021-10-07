@@ -3,9 +3,10 @@ html {
 }
 
 body {
-	background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;
-	background-size: cover;
-    height: calc(100vh - 164px);
+	/* background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;
+	background-size: cover; */
+    background-color: #fdfdfd;
+    height: calc(100vh - 230px);
     color: #555;
     font-family: "Lato";
 }
@@ -33,7 +34,7 @@ body {
 }
 
 .logo-img {
-    filter: drop-shadow(2px 2px 0px lightgrey);
+    filter: drop-shadow(4px 4px 1px lightgrey);
 }
 
 .shop-now-button {
@@ -89,6 +90,6 @@ body {
     }
 
     .header-container {
-        padding-top: 164px;
+        padding-top: 230px;
     }
 }
