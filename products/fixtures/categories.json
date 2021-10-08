@@ -1,0 +1,26 @@
+[
+    {
+       "pk":1,
+       "model":"products.category",
+       "fields":{
+          "name":"chocolate",
+          "friendly_name":"Chocolate Bouquets"
+       }
+    },
+    {
+       "pk":2,
+       "model":"products.category",
+       "fields":{
+          "name":"meet_cheese",
+          "friendly_name":"Meet & Cheese"
+       }
+    },
+    {
+       "pk":3,
+       "model":"products.category",
+       "fields":{
+          "name":"veggies_fruits",
+          "friendly_name":"Veggies & Fruits"
+       }
+    }
+]

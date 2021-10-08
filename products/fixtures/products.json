@@ -1,0 +1,548 @@
+[
+    {
+       "pk":1,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000001",
+          "name":"'Baby Girl' chocolate strawberry bouquet",
+          "description":"1 dozen (12 pieces) of Strawberries double covered in finest Belgium 'Callebaut' Chocolate + Ferrero Roches and Tim Tams ",
+          "price":45.00,
+          "category":1,
+          "rating":4.6,
+          "size": "Small",
+          "image":"baby_girl_600x.png"
+       }
+    },
+    {
+       "pk":2,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000002",
+          "name":"'Nuts About You' sweet blooms edible bouquet",
+          "description":"2 dozen (24 pieces) of Strawberries double covered in finest Belgium 'Callebaut' Chocolate + 4 Roasted Almond Meringues + Ferrero Roches and Tim Tams + Marshmallows",
+          "price":55.00,
+          "category":1,
+          "rating":4.3,
+          "size": "Small",
+          "image":"NutsAboutYou_SweetBloomsEdibleBouquet9_3_600x.png"
+       }
+    },
+    {
+       "pk":3,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000003",
+          "name":"'Pink Clouds' chocolate strawberry & donut bouquet",
+          "description":"1 dozen (12 pieces) of Strawberries double covered in finest Belgium 'Callebaut' Chocolate + Marshmallows + 6 Cloud Soft Chocolate covered and decorated Nutella & Caramel filled Donuts + Ferrero Rocher + Watermelon Sugar Crystals Stick",
+          "price":55.00,
+          "category":1,
+          "rating":4.1,
+          "size": "Small",
+          "image":"PinkCloudsChocolateStrawberries_DonutsBouquet1_600x.png"
+       }
+    },
+    {
+       "pk":4,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000004",
+          "name":"'Allure Chocolate' strawberry bouquet - dark/milk",
+          "description":"Fresh Strawberries double covered in finest Belgium 'Callebaut' Chocolate:  2 dozen (24 pieces) for Medium + Ferrero Rocher + Marshmallows",
+          "price":65.00,
+          "category":1,
+          "rating":4.1,
+          "size": "Small",
+          "image":"Allure_ChocolateBloomsEdibleBouquet26_600x.png"
+       }
+    },
+    {
+       "pk":5,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000005",
+          "name":"'Allure Chocolate' strawberry bouquet - milk/ruby",
+          "description":"Fresh Strawberries double covered in finest Belgium 'Callebaut' Chocolate:   2 dozen (24 pieces) for Medium + Ferrero Rocher + Marshmallows + Cut Flowers (with water supply)",
+          "price":65.00,
+          "category":1,
+          "rating":4.2,
+          "size": "Small",
+          "image":"Allure_ChocolateBloomsEdibleBouquet34_600x.png"
+       }
+    },
+    {
+       "pk":6,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000006",
+          "name":"'Allure Chocolate' strawberry bouquet - milk/ruby",
+          "description":"Fresh Strawberries double covered in finest Belgium 'Callebaut' Chocolate:   2 dozen (24 pieces) for Medium + Ferrero Rocher + Marshmallows + Cut Flowers (with water supply)",
+          "price":35.00,
+          "category":1,
+          "rating":3.9,
+          "size": "Small",
+          "image":"Allure_ChocolateBloomsEdibleBouquet34_600x.png"
+       }
+    },
+    {
+       "pk":7,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000007",
+          "name":"'Allure Chocolate' strawberry bouquet - white/milk",
+          "description":"Fresh Strawberries double covered in finest Belgium 'Callebaut' Chocolate:   2 dozen (24 pieces) for Medium + Ferrero Rocher + Marshmallows + Cut Flowers (with water supply)",
+          "price":37.00,
+          "category":1,
+          "rating":4.1,
+          "size": "Small",
+          "image":"Allure_ChocolateBloomsEdibleBouquet3_600x.png"
+       }
+    },
+    {
+       "pk":8,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000008",
+          "name":"Allure Chocolate strawberry bouquet - milk",
+          "description":"Juicy strawberries covered in finest Belgium chocolate, Ferrero Rochers and Australian favourite Tim Tams.",
+          "price":38.00,
+          "category":1,
+          "rating":3.5,
+          "size": "Small",
+          "image":"Allure_ChocolateBloomsEdibleBouquet14_1_600x.png"
+       }
+    },
+    {
+       "pk":9,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000009",
+          "name":"Tim Tams & chocolate strawberry bouquet",
+          "description":"1 dozen (12 pieces) of Strawberries double covered in finest Belgium 'Callebaut' Chocolate + Ferrero Roches and Tim Tams.",
+          "price":38.00,
+          "category":1,
+          "rating":3.9,
+          "size": "Small",
+          "image":"strawberri_fairy_600x.png"
+       }
+    },
+    {
+       "pk":10,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000010",
+          "name":"'baby boy' chocolate strawberry bouquet",
+          "description":"1 dozen (12 pieces) of Strawberries double covered in finest Belgium 'Callebaut' Chocolate + Ferrero Roches and Tim Tams.",
+          "price":38.00,
+          "category":1,
+          "rating":4.7,
+          "size": "Small",
+          "image":"baby_boy_600x.png"
+       }
+    },
+    {
+       "pk":11,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000011",
+          "name":"'sweet beat' chocolate strawberry bouquet",
+          "description":"Around 3 dozens of juicy strawberries covered in finest Belgium chocolate and juicy cherries or blueberries. Cloud melting marshmallows and various flavour waffles, Ferrero Rocher, and Australian favourite Tim Tams cookies in a delicious combination of this Edible Bouquet.",
+          "price":38.00,
+          "category":1,
+          "rating":4.4,
+          "size": "Small",
+          "image":"SweetBeat_ChocolateStrawberries_Cherries_Blueberries-EdibleBouquet1_600x.png"
+       }
+    },
+    {
+       "pk":12,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000012",
+          "name":"'golden star' chocolate strawberry bouquet",
+          "description":"Hand-selected Strawberries double covered in finest Belgium Chocolate with 24K Gold Sprinkles, crispy Tim Tams, and heavenly crunchy Ferrero Roches ...",
+          "price":38.00,
+          "category":1,
+          "rating":4.4,
+          "size": "Small",
+          "image":"golden_star_600x.png"
+        }
+     },
+     {
+       "pk":13,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000013",
+          "name":"'donut you love me' strawberry & donut bouquet",
+          "description":"1 dozen (12 pieces) Strawberries and 6 Donuts double covered in finest Belgium 'Callebaut' Chocolate + Marshmallows + Ferrero Roches.",
+          "price":38.00,
+          "category":1,
+          "rating":4.4,
+          "size": "Small",
+          "image":"DonutYouLovemeBouquets2_1_600x.png"
+        }
+     },
+     {
+       "pk":14,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000014",
+          "name":"'oreo cookies trio' donut bouquet",
+          "description":"1 dozen (12 pieces) Strawberries and 6 Donuts double covered in finest Belgium 'Callebaut' Chocolate and Oreo Cookies + Marshmallows + Ferrero Roches.",
+          "price":43.00,
+          "category":1,
+          "rating":4.1,
+          "size": "Small",
+          "image":"OreoTrioDonutChocolateBouquet1_98398872-7e26-453b-be24-fc3857cd1dbd_600x.png"
+        }
+     },
+     {
+       "pk":15,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000015",
+          "name":"'orchids & chocolate' strawberry bouquet",
+          "description":"2 dozen (24 pieces) of Strawberries double covered in finest Belgium 'Callebaut' Chocolate + Flowers (with water supply)",
+          "price":42.50,
+          "category":1,
+          "rating":4.1,
+          "size": "Small",
+          "image":"ChocolateStrawberries_Orchids1_600x.png"
+        }
+     },
+     {
+       "pk":16,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000016",
+          "name":"'allure bubbles' & chocolate strawberry bouquet",
+          "description":"Fresh Strawberries double covered in finest Belgium 'Callebaut' Chocolate:  2 dozen (24 pieces) for Medium and 3 dozen (36 pieces) for Large Size + Seasonal Berries: raspberries / blackberries / blueberries /cherries) + Marshmallows + Ferrero Rocher.",
+          "price":37.00,
+          "category":1,
+          "rating":4.1,
+          "size": "Small",
+          "image":"Allure_ChocolateBlooms_Bubbles2_600x.png"
+        }
+     },
+     {
+       "pk":17,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000017",
+          "name":"whisky, cold meats & cheese bouquet",
+          "description":"This Meat & Cheese Bouquet is filled with Fine Foods from Barossa and Adelaide Hills: Prosciutto & Salami Roses, Almonds & Walnuts, crunchy & salty Pretzels, Cheese in wax shell, and an assortment of other local cold meats with a mini bottle of Whisky. This is a great alternative for a man who has everything.",
+          "price":59.99,
+          "category":2,
+          "rating":4.1,
+          "size": "Small",
+          "image":"Whisky_ColdMeats_CheeseBunch1_1_700x.png"
+        }
+     },
+     {
+       "pk":18,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000018",
+          "name":"prosciutto roses meat & cheese bouque",
+          "description":"This Meat & Cheese Bouquet is filled with Fine Foods from Barossa and Adelaide Hills: Prosciutto & Salami Roses, Almonds & Walnuts, crunchy & salty Pretzels, Cheese in wax shell, and an assortment of other local cold meats. This is a great alternative for a man who has everything.",
+          "price":39.00,
+          "category":2,
+          "rating":4.1,
+          "size": "Small",
+          "image":"ProsciuttoRosesMeat_CheeseBouquetlarge5_600x.png"
+        }
+     },
+     {
+       "pk":19,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000019",
+          "name":"meat & cheese beer bouquet",
+          "description":"This Meat & Cheese Bouquet is filled with Fine Foods from Barossa and Adelaide Hills: Prosciutto & Salami Roses, Almonds & Walnuts, crunchy & salty Pretzels, Cheese in wax shell, and an assortment of other local cold meats with a bottle of Craft Beer. This is a great alternative for a man who has everything.",
+          "price":37.30,
+          "category":2,
+          "rating":3.8,
+          "size": "Small",
+          "image":"Beer_Meat_CheeseLunchBunchsmall2_600x.png"
+        }
+     },
+     {
+       "pk":20,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000020",
+          "name":"prosciutto roses meat & cheese bouquet",
+          "description":"This Meat & Cheese Bouquet is filled with Fine Foods from Barossa and Adelaide Hills: Prosciutto & Salami Roses, Almonds & Walnuts, crunchy & salty Pretzels, Cheese in wax shell, and an assortment of other local cold meats. This is a great alternative for a man who has everything.",
+          "price":48.30,
+          "category":2,
+          "rating":4.8,
+          "size": "Small",
+          "image":"ProsciuttoRosesMeat_CheeseBouquetsmall1_600x.png"
+        }
+     },
+     {
+       "pk":21,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000021",
+          "name":"prosciutto roses meat & cheese bouquet",
+          "description":"This Meat & Cheese Bouquet is filled with Fine Foods from Barossa and Adelaide Hills: Prosciutto & Salami Roses, Almonds & Walnuts, crunchy & salty Pretzels, Cheese in wax shell, and an assortment of other local cold meats. This is a great alternative for a man who has everything.",
+          "price":48.30,
+          "category":2,
+          "rating":4.2,
+          "size": "Small",
+          "image":"ProsciuttoRosesMeat_CheeseBouquetmedium1_600x.png"
+        }
+     },
+     {
+       "pk":22,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000022",
+          "name":"mini meat & cheese bouquet",
+          "description":"Meat & Cheese Mini Grazing Bunches are easy to handle and transport using a standard size cool bag.",
+          "price":38.30,
+          "category":2,
+          "rating":3.2,
+          "size": "Small",
+          "image":"mini_meat_600x.png"
+        }
+     },
+     {
+       "pk":23,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000023",
+          "name":"meat & cheese volcano savoury bouquet",
+          "description":"It's full of life with an amazing combination of aromas, coming from the variety of meats, cheeses and crispy breadsticks. We use a mix of Barossa's finest sausages, salamis and cheeses and Australian nuts.",
+          "price":37.30,
+          "category":2,
+          "rating":3.7,
+          "size": "Small",
+          "image":"meat_1_600x.png"
+        }
+     },
+     {
+       "pk":24,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000024",
+          "name":"meringue spear fruit bouquet",
+          "description":"Pomegranate  + Mini meringues + Flowers + Strawberries and Blueberries. Various chocolate bars and Plums/Nectarines/Peaches/Lime/Kiwi.",
+          "price":47.30,
+          "category":3,
+          "rating":4.7,
+          "size": "Small",
+          "image":"meringue_spear_600x.png"
+        }
+     },
+     {
+       "pk":25,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000025",
+          "name":"blueberry dance fruit bouquet",
+          "description":"Pomegranate  + Avocado + Flowers + Strawberries and Blueberries. Grapes/Cherries and Plums/Apples/Nectarines/Peaches/Lime/Kiwi/Orange.",
+          "price":45.30,
+          "category":3,
+          "rating":4.5,
+          "size": "Small",
+          "image":"blueberry_dance_600x (1).png"
+        }
+     },
+     {
+       "pk":26,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000026",
+          "name":"sunrise fruit bouquet",
+          "description":"This Lunch Bunch contains cut open citrus and flowers, the aroma of this combination is irresistible! A few strawberries, apples, nectarines pears or other healthy favourites to complete the bunch and WoW!",
+          "price":45.30,
+          "category":3,
+          "rating":4.4,
+          "size": "Small",
+          "image":"sunrise_600x (1).png"
+        }
+     },
+     {
+       "pk":27,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000027",
+          "name":"morning ray fruit bouquet",
+          "description":"Apples  + Lime and Lemon + Flowers. Grapes back/green and Plums/Kiwi",
+          "price":45.30,
+          "category":3,
+          "rating":4.4,
+          "size": "Small",
+          "image":"morning_ray_600x.png"
+        }
+     },
+     {
+       "pk":28,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000028",
+          "name":"'the secret valentine' fruit chocolate strawberry bouquet",
+          "description":"Pomegranate + Blackberries/Blueberries/Strawberries and Chocolate covered strawberries.",
+          "price":42.30,
+          "category":3,
+          "rating":4.2,
+          "size": "Small",
+          "image":"secret_valentine_600x.png"
+        }
+     },
+     {
+       "pk":29,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000029",
+          "name":"'fresh strawberry' fruit - roses gift basket",
+          "description":"Nothing beats that divine smell combination of strawberries and fresh cut roses. Flowers have its own water supply. This arrangement could be stored in a fridge. Easy to transport, this basket will be cellophane wrapped with our branded ribbon for the best presentation.",
+          "price":37.30,
+          "category":3,
+          "rating":3.7,
+          "size": "Small",
+          "image":"naked_berries_L_600x.png"
+        }
+     },
+     {
+       "pk":30,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000030",
+          "name":"guacamole veggies avocado bouquet",
+          "description":"Avocados + Parsley/Coriander. Chillies Red/Green and Onions White/Brown. Along with Garlic and Cherry tomatoes.",
+          "price":37.30,
+          "category":3,
+          "rating":4.1,
+          "size": "Small",
+          "image":"avo_600x.png"
+        }
+     },
+     {
+       "pk":31,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000031",
+          "name":"tropical fruit bouquet",
+          "description":"Ladyfinger bananas.  Avocado  + Mint. Flowers. Strawberries/Cherries and Plums/Apples/Nectarines/Peaches/Lime/Kiwi.",
+          "price":37.30,
+          "category":3,
+          "rating":4.1,
+          "size": "Small",
+          "image":"tropical_600x.png"
+        }
+     },
+     {
+       "pk":32,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000032",
+          "name":"rustic barn veggies bouquet",
+          "description":"Combination of gold, red and white onions, white and lilac garlic, dried wheat stalks, walnuts, bat leaves.  Gold/brown wrapping.",
+          "price":36.30,
+          "category":3,
+          "rating":4.1,
+          "size": "Small",
+          "image":"rustic_600x.png"
+        }
+     },
+     {
+       "pk":33,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000033",
+          "name":"cardinal fruit bouquet",
+          "description":"This Lunch Bunch contains cut open citrus and flowers, the aroma of this combination is irresistible! A few strawberries, apples, nectarines pears or other healthy favourites to complete the bunch and WoW!",
+          "price":32.35,
+          "category":3,
+          "rating":4.0,
+          "size": "Small",
+          "image":"cardinal_600x.png"
+        }
+     },
+     {
+       "pk":34,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000034",
+          "name":"lady in red macarons & fruit bouquet",
+          "description":"Pomegranate + Blackberries/Blueberries/Strawberries and Chocolate covered strawberries.",
+          "price":43.35,
+          "category":3,
+          "rating":4.25,
+          "size": "Small",
+          "image":"lady_in_red_600x.png"
+        }
+     },
+     {
+       "pk":35,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000035",
+          "name":"lust veggies & fruit bouquet",
+          "description":"Avocados + Pomegranate + Mint. Flowers. Strawberries/Cherries and Plums/Apples/Nectarines/Peaches/Lime/Kiwi.",
+          "price":43.35,
+          "category":3,
+          "rating":4.25,
+          "size": "Small",
+          "image":"lust_600x.png"
+        }
+     },
+     {
+       "pk":36,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000036",
+          "name":"spring salad veggies bouquet",
+          "description":"Beetroots + Apples . Green snow peas and Eggplants. Redis + Broccoli and Garlic/Capsicum/Onion.",
+          "price":63.35,
+          "category":3,
+          "rating":4.75,
+          "size": "Small",
+          "image":"veggies_600x.png"
+        }
+     },
+     {
+       "pk":37,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000037",
+          "name":"italian pesto pasta savoury veggie bouquet",
+          "description":"Nested Tagliatelle, mushrooms, basil/parsley, cherry tomatoes, zucchini, broccoli and jar of best Italian Pesto Paste in this Edible LunchBunch, wouldn't it be the best gift to send to an Italian friend?",
+          "price":60.00,
+          "category":3,
+          "rating":4.75,
+          "size": "Small",
+          "image":"ItalianPestoPastaSavouryBouquet2_600x.png"
+        }
+     },
+     {
+       "pk":38,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000038",
+          "name":"glary canary veggies bouquet",
+          "description":"Yellow cherry tomatoes, Spring onion, Mint, Red tomatoes, Apples/pears, Orange, Brown/white onions.",
+          "price":60.00,
+          "category":3,
+          "rating":4.75,
+          "size": "Small",
+          "image":"canary_600x.png"
+        }
+     },
+     {
+       "pk":39,
+       "model":"products.product",
+       "fields":{
+          "sku":"pp0000000039",
+          "name":"hot red chilly veggie bouquet",
+          "description":"Chilly and lime + big red sweet pepper.",
+          "price":27.00,
+          "category":3,
+          "rating":4.6,
+          "size": "Small",
+          "image":"chilli_600x.png"
+        }
+    }
+]
