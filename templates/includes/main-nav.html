@@ -4,18 +4,18 @@
             <a class="nav-link logo-font font-weight-bold nav-link text-black mr-4" href="{% url 'products' %}">Shop All</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link logo-font font-weight-bold nav-link text-black mr-4" href="#">Chocolate Bouquets</a>
+            <a class="nav-link logo-font font-weight-bold nav-link text-black mr-4" href="{% url 'products' %}?category=chocolate">Chocolate Bouquets</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link logo-font font-weight-bold nav-link text-black mr-4" href="#">Meet &amp; Cheese</a>
+            <a class="nav-link logo-font font-weight-bold nav-link text-black mr-4" href="{% url 'products' %}?category=meet_cheese">Meet &amp; Cheese</a>
         </li>
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Veggies &amp; Fruits
             </a>
             <div class="dropdown-menu border-0 shadow-sm" aria-labelledby="clothing-link">
-                <a href="" class="dropdown-item">Veggies</a>
-                <a href="" class="dropdown-item">Fruits</a>
+                <a href="{% url 'products' %}?q=veggies" class="dropdown-item">Veggies</a>
+                <a href="{% url 'products' %}?q=fruit" class="dropdown-item">Fruits</a>
             </div>
         </li>
         <li class="nav-item">
