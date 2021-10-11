@@ -1,6 +1,7 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 
 # Create your views here.
+
 
 def view_bag(request):
     """ A view to return the bag page """
