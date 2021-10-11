@@ -13,7 +13,6 @@ def products(request):
     products = Product.objects.all()
     query = None
     category = None
-    top_h_category = None
     sort = None
     direction = None
 
@@ -34,7 +33,7 @@ def products(request):
         
         if request.GET:
             if 'category' in request.GET:
-                
+
                 category = request.GET['category'].split(',')
                 products = products.filter(category__name__in=category)
                 category = Category.objects.filter(name__in=category)
