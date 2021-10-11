@@ -18,12 +18,6 @@ class Category(models.Model):
 
 class Product(models.Model):
 
-    BOUQUET_SIZE = [
-        ('SMALL', 'Small'),
-        ('MEDIUM', 'Medium'),
-        ('LARGE', 'Large'),
-    ]
-
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL
         )
@@ -34,9 +28,7 @@ class Product(models.Model):
     rating = models.DecimalField(
         max_digits=6, decimal_places=2, null=True, blank=True
         )
-    size = models.CharField(
-        max_length=6, choices=BOUQUET_SIZE, default='SMALL'
-        )
+    size = models.BooleanField(default=True, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
