@@ -112,6 +112,27 @@ a.category-badge > span.badge:hover {
     box-shadow: rgb(50 50 105 / 15%) 0px 2px 5px 0px, rgb(0 0 0 / 5%) 0px 1px 1px 0px;
 }
 
+/* ------------------------------- bootstrap toasts */
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+/* -------------------------------- Media Queries */
+
+
+
 /* --------------------------------- Media queries */
 
 /* Slightly larger container on xl screens */
@@ -146,3 +167,4 @@ a.category-badge > span.badge:hover {
         height: calc(100vh - 116px);
     }
 }
+
