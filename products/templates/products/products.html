@@ -51,13 +51,7 @@
                         <div class="card h-100 border-1 card-shadow">
                             {% if product.image %}
                             <a href="{% url 'product_detail' product.id %}">
-                                <img class="card-img-top img-fluid" 
-                                {% if product.image.url %} 
-                                    src="{{ product.image.url }}" 
-                                {% else %}
-                                    src="{{ MEDIA_URL }}noimage.png"
-                                {% endif %} 
-                                alt="{{ product.name }}">
+                                <img class="card-img-top img-fluid check-img-url" src="{{ product.image.url }}" alt="{{ product.name }}">
                             </a>
                             {% else %}
                             <a href="{% url 'product_detail' product.id %}">
@@ -127,6 +121,18 @@
 
 {% block postloadjs %}
     {{ block.super }}
+
+    <script type="text/javascript">
+        let image_url = $(".check-img-url").attr("src");
+        $.get(image_url)
+            .done(function() { 
+                // Do something now you know the image exists.
+
+            }).fail(function() { 
+                // Image doesn't exist - do something else.
+                $(".check-img-url").attr("src","{{ MEDIA_URL }}noimage.png");
+            })
+    </script>
 
     <script type="text/javascript">
 		$('.btt-link').click(function(e) {
