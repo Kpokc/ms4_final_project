@@ -9,7 +9,7 @@
           "price":45.00,
           "category":1,
           "rating":4.6,
-          "size": "Small",
+          "size": true,
           "image":"baby_girl_600x.png"
        }
     },
@@ -23,7 +23,7 @@
           "price":55.00,
           "category":1,
           "rating":4.3,
-          "size": "Small",
+          "size": true,
           "image":"NutsAboutYou_SweetBloomsEdibleBouquet9_3_600x.png"
        }
     },
@@ -37,7 +37,7 @@
           "price":55.00,
           "category":1,
           "rating":4.1,
-          "size": "Small",
+          "size": true,
           "image":"PinkCloudsChocolateStrawberries_DonutsBouquet1_600x.png"
        }
     },
@@ -51,7 +51,7 @@
           "price":65.00,
           "category":1,
           "rating":4.1,
-          "size": "Small",
+          "size": true,
           "image":"Allure_ChocolateBloomsEdibleBouquet26_600x.png"
        }
     },
@@ -65,7 +65,7 @@
           "price":65.00,
           "category":1,
           "rating":4.2,
-          "size": "Small",
+          "size": true,
           "image":"Allure_ChocolateBloomsEdibleBouquet34_600x.png"
        }
     },
@@ -79,7 +79,7 @@
           "price":35.00,
           "category":1,
           "rating":3.9,
-          "size": "Small",
+          "size": true,
           "image":"Allure_ChocolateBloomsEdibleBouquet34_600x.png"
        }
     },
@@ -93,7 +93,7 @@
           "price":37.00,
           "category":1,
           "rating":4.1,
-          "size": "Small",
+          "size": true,
           "image":"Allure_ChocolateBloomsEdibleBouquet3_600x.png"
        }
     },
@@ -107,7 +107,7 @@
           "price":38.00,
           "category":1,
           "rating":3.5,
-          "size": "Small",
+          "size": true,
           "image":"Allure_ChocolateBloomsEdibleBouquet14_1_600x.png"
        }
     },
@@ -121,7 +121,7 @@
           "price":38.00,
           "category":1,
           "rating":3.9,
-          "size": "Small",
+          "size": true,
           "image":"strawberri_fairy_600x.png"
        }
     },
@@ -135,7 +135,7 @@
           "price":38.00,
           "category":1,
           "rating":4.7,
-          "size": "Small",
+          "size": true,
           "image":"baby_boy_600x.png"
        }
     },
@@ -149,7 +149,7 @@
           "price":38.00,
           "category":1,
           "rating":4.4,
-          "size": "Small",
+          "size": true,
           "image":"SweetBeat_ChocolateStrawberries_Cherries_Blueberries-EdibleBouquet1_600x.png"
        }
     },
@@ -163,7 +163,7 @@
           "price":38.00,
           "category":1,
           "rating":4.4,
-          "size": "Small",
+          "size": true,
           "image":"golden_star_600x.png"
         }
      },
@@ -177,7 +177,7 @@
           "price":38.00,
           "category":1,
           "rating":4.4,
-          "size": "Small",
+          "size": true,
           "image":"DonutYouLovemeBouquets2_1_600x.png"
         }
      },
@@ -191,7 +191,7 @@
           "price":43.00,
           "category":1,
           "rating":4.1,
-          "size": "Small",
+          "size": true,
           "image":"OreoTrioDonutChocolateBouquet1_98398872-7e26-453b-be24-fc3857cd1dbd_600x.png"
         }
      },
@@ -205,7 +205,7 @@
           "price":42.50,
           "category":1,
           "rating":4.1,
-          "size": "Small",
+          "size": true,
           "image":"ChocolateStrawberries_Orchids1_600x.png"
         }
      },
@@ -219,7 +219,7 @@
           "price":37.00,
           "category":1,
           "rating":4.1,
-          "size": "Small",
+          "size": true,
           "image":"Allure_ChocolateBlooms_Bubbles2_600x.png"
         }
      },
@@ -233,7 +233,7 @@
           "price":59.99,
           "category":2,
           "rating":4.1,
-          "size": "Small",
+          "size": true,
           "image":"Whisky_ColdMeats_CheeseBunch1_1_700x.png"
         }
      },
@@ -247,7 +247,7 @@
           "price":39.00,
           "category":2,
           "rating":4.1,
-          "size": "Small",
+          "size": true,
           "image":"ProsciuttoRosesMeat_CheeseBouquetlarge5_600x.png"
         }
      },
@@ -261,7 +261,7 @@
           "price":37.30,
           "category":2,
           "rating":3.8,
-          "size": "Small",
+          "size": true,
           "image":"Beer_Meat_CheeseLunchBunchsmall2_600x.png"
         }
      },
@@ -275,7 +275,7 @@
           "price":48.30,
           "category":2,
           "rating":4.8,
-          "size": "Small",
+          "size": true,
           "image":"ProsciuttoRosesMeat_CheeseBouquetsmall1_600x.png"
         }
      },
@@ -289,7 +289,7 @@
           "price":48.30,
           "category":2,
           "rating":4.2,
-          "size": "Small",
+          "size": true,
           "image":"ProsciuttoRosesMeat_CheeseBouquetmedium1_600x.png"
         }
      },
@@ -303,7 +303,7 @@
           "price":38.30,
           "category":2,
           "rating":3.2,
-          "size": "Small",
+          "size": true,
           "image":"mini_meat_600x.png"
         }
      },
@@ -317,7 +317,7 @@
           "price":37.30,
           "category":2,
           "rating":3.7,
-          "size": "Small",
+          "size": true,
           "image":"meat_1_600x.png"
         }
      },
@@ -331,7 +331,7 @@
           "price":47.30,
           "category":3,
           "rating":4.7,
-          "size": "Small",
+          "size": true,
           "image":"meringue_spear_600x.png"
         }
      },
@@ -345,7 +345,7 @@
           "price":45.30,
           "category":3,
           "rating":4.5,
-          "size": "Small",
+          "size": true,
           "image":"blueberry_dance_600x (1).png"
         }
      },
@@ -359,7 +359,7 @@
           "price":45.30,
           "category":3,
           "rating":4.4,
-          "size": "Small",
+          "size": true,
           "image":"sunrise_600x (1).png"
         }
      },
@@ -373,7 +373,7 @@
           "price":45.30,
           "category":3,
           "rating":4.4,
-          "size": "Small",
+          "size": true,
           "image":"morning_ray_600x.png"
         }
      },
@@ -387,7 +387,7 @@
           "price":42.30,
           "category":3,
           "rating":4.2,
-          "size": "Small",
+          "size": true,
           "image":"secret_valentine_600x.png"
         }
      },
@@ -401,7 +401,7 @@
           "price":37.30,
           "category":3,
           "rating":3.7,
-          "size": "Small",
+          "size": true,
           "image":"naked_berries_L_600x.png"
         }
      },
@@ -415,7 +415,7 @@
           "price":37.30,
           "category":3,
           "rating":4.1,
-          "size": "Small",
+          "size": true,
           "image":"avo_600x.png"
         }
      },
@@ -429,7 +429,7 @@
           "price":37.30,
           "category":3,
           "rating":4.1,
-          "size": "Small",
+          "size": true,
           "image":"tropical_600x.png"
         }
      },
@@ -443,7 +443,7 @@
           "price":36.30,
           "category":3,
           "rating":4.1,
-          "size": "Small",
+          "size": true,
           "image":"rustic_600x.png"
         }
      },
@@ -457,7 +457,7 @@
           "price":32.35,
           "category":3,
           "rating":4.0,
-          "size": "Small",
+          "size": true,
           "image":"cardinal_600x.png"
         }
      },
@@ -471,7 +471,7 @@
           "price":43.35,
           "category":3,
           "rating":4.25,
-          "size": "Small",
+          "size": true,
           "image":"lady_in_red_600x.png"
         }
      },
@@ -485,7 +485,7 @@
           "price":43.35,
           "category":3,
           "rating":4.25,
-          "size": "Small",
+          "size": true,
           "image":"lust_600x.png"
         }
      },
@@ -499,7 +499,7 @@
           "price":63.35,
           "category":3,
           "rating":4.75,
-          "size": "Small",
+          "size": true,
           "image":"veggies_600x.png"
         }
      },
@@ -513,7 +513,7 @@
           "price":60.00,
           "category":3,
           "rating":4.75,
-          "size": "Small",
+          "size": true,
           "image":"ItalianPestoPastaSavouryBouquet2_600x.png"
         }
      },
@@ -527,7 +527,7 @@
           "price":60.00,
           "category":3,
           "rating":4.75,
-          "size": "Small",
+          "size": true,
           "image":"canary_600x.png"
         }
      },
@@ -541,7 +541,7 @@
           "price":27.00,
           "category":3,
           "rating":4.6,
-          "size": "Small",
+          "size": true,
           "image":"chilli_600x.png"
         }
     }
