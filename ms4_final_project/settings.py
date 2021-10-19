@@ -28,12 +28,12 @@ SECRET_KEY = os.environ.get('SECRET_KEY', ' ')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT' in os.environ
+# DEBUG = 'DEVELOPMENT' in os.environ
 
-# if 'DEVELOPMENT' in os.environ:
-#     DEBUG = False
-# else:
-#     DEBUG = True
+if 'DEVELOPMENT' in os.environ:
+    DEBUG = False
+else:
+    DEBUG = True
 
 ALLOWED_HOSTS = ['final-ms4-app.herokuapp.com', 'localhost']
 
