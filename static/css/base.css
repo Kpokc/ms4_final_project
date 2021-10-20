@@ -240,6 +240,19 @@ input[name='q']::placeholder {
 	color: #17a2b8; /* text-info */
 }
 
+.logo-img,#topnav,.navbar {
+    transition: 1s;
+}
+/* On scroll JQ will add to logo and topnav */
+.spec-topnav-small {
+    padding: 0px;
+}
+
+.spec-logo-small {
+    height: 75px!important;
+    transition: 1s;
+} 
+
 
 /* --------------------------------- Media queries */
 

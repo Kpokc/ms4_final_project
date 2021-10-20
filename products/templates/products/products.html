@@ -51,7 +51,7 @@
                         <div class="card h-100 border-1 card-shadow">
                             {% if product.image %}
                             <a href="{% url 'product_detail' product.id %}">
-                                <img class="card-img-top img-fluid check-img-url" src="{{ product.image.url }}" alt="{{ product.name }}" onError="this.onerror=null;this.src='{{ MEDIA_URL }}noimage.png';" />
+                                <img class="card-img-top img-fluid check-img-url" src="{{ product.image.url }}" alt="{{ product.name }}" onError="this.onerror=null;this.src='{{ MEDIA_URL }}noimage.png';" loading="lazy" />
                             </a>
                             {% else %}
                             <a href="{% url 'product_detail' product.id %}">
@@ -117,16 +117,65 @@
             <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
         </a>	
     </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
 {% endblock %}
 
 {% block postloadjs %}
     {{ block.super }}
 
     <script type="text/javascript">
-		$('.btt-link').click(function(e) {
-			window.scrollTo(0,0)
-		})
-	</script>
+        // set modal show function to cookie time
+        $(window).on('load',function(){
+            if (document.cookie.indexOf('modal_shown=') >= 0) {
+            //do nothing if modal_shown cookie is present
+            } else {
+                var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'), {
+                keyboard: false
+                })
+                myModal.toggle();
+                var now = new Date();
+                var time = now.getTime();
+                // Set cookie to expire in one hour
+                var expireTime = time + 3600000;
+                now.setTime(expireTime);
+                document.cookie = 'modal_shown=ok;expires='+now.toUTCString()+';path=/';
+            }
+        });
+
+        // On scroll dow / up adjust top navigation bar
+        $(window).scroll(function(){
+            if($(document).scrollTop() > 70) {
+                $('.logo-img').addClass('spec-logo-small');
+                $('#topnav').addClass('spec-topnav-small');
+                $('.navbar').addClass('spec-topnav-small');
+            } else {
+                $('.logo-img').removeClass('spec-logo-small');
+                $('#topnav').removeClass('spec-topnav-small');
+                $('.navbar').removeClass('spec-topnav-small');
+            }
+        });
+
+    </script>
 
     <script type="text/javascript">
 		$('.btt-link').click(function(e) {
