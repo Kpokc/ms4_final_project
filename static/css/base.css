@@ -356,6 +356,36 @@ p.carusel-text{
     transform: scale(1, 1)
 }
 
+/* Card hover efect */
+.card-body, .card-footer{
+    z-index: 1!important;
+    background-color: #fff;
+}
+
+.size > span {
+    padding: 3px;
+    border: 1px solid;
+}
+
+.ingredient {
+    height: 30px;
+}
+
+.hidden-body {
+    position: absolute;
+    bottom: 120px;
+    width: 100%;
+    height: 0px;
+    text-align: center;
+    transition: .5s;
+    z-index: 0;
+    background-color: #dfdfdfb3;
+    color: #000;
+}
+.card:hover > .hidden-body {
+    height: 170px;
+}
+
 /* --------------------------------- Media queries */
 
 /* Slightly larger container on xl screens */

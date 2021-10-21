@@ -13,7 +13,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col text-center mt-3">
-            <h2 class="logo-font">Bouquets</h2>
+            <h2 class="logo-font">All Bouquets</h2>
             <hr class="w-50 mb-1">
         </div>
     </div>
@@ -49,6 +49,7 @@
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                         
                         <div class="card h-100 border-1 card-shadow">
+                        
                             {% if product.image %}
                             <a href="{% url 'product_detail' product.id %}">
                                 <img class="card-img-top img-fluid check-img-url" src="{{ product.image.url }}" alt="{{ product.name }}" onError="this.onerror=null;this.src='{{ MEDIA_URL }}noimage.png';" loading="lazy" />
@@ -58,33 +59,62 @@
                                 <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                             </a>
                             {% endif %}
-                            <div class="card-body pb-0">
-                                <p class="mb-0">{{ product.name|upper }}</p>
-                            </div>
-                            <div class="card-footer bg-white pt-0 border-0 text-left">
-                                <div class="row">
-                                    <div class="col">
-                                        <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
-                                        {% if product.category %}
-                                        <p class="small mt-1 mb-0">
-                                            <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
-                                                <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
-                                            </a>
-                                        </p>
-                                        {% endif %}
-                                        {% if product.rating %}
-                                            <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
-                                        {% else %}
-                                            <small class="text-muted">No Rating</small>
-                                        {% endif %}
-                                        {% if request.user.is_superuser %}
-                                            <small class="ml-3">
-                                                <a href="{% url 'edit_product' product.id %}">Edit</a> | 
-                                                <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-                                            </small>
-                                        {% endif %}
+                                <div class="card-body pb-0">
+                                    <p class="mb-0">{{ product.name|upper }}</p>
+                                </div>
+                                <div class="card-footer bg-white pt-0 border-0 text-left">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                                            {% if product.category %}
+                                            <p class="small mt-1 mb-0">
+                                                <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
+                                                    <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                                                </a>
+                                            </p>
+                                            {% endif %}
+                                            {% if product.rating %}
+                                                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                                            {% else %}
+                                                <small class="text-muted">No Rating</small>
+                                            {% endif %}
+                                            {% if request.user.is_superuser %}
+                                                <small class="ml-3">
+                                                    <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+                                                    <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                                                </small>
+                                            {% endif %}
+                                        </div>
                                     </div>
                                 </div>
+                            <div class="hidden-body">
+                                <div class="size mb-2">
+                                    <h5 class="mb-1"><strong>Size:</strong></h5>
+                                    <span>SMALL</span>
+                                    <span class="mx-1">MEDIUM</span>
+                                    <span>LARGE</span>
+                                </div>
+                                    <div class="imgredients">
+                                        <h5 class="mb-2"><strong>Ingredients:</strong></h5>
+                                        {% if product.category.name == 'chocolate' %}
+                                            <!-- Fruits -->
+                                            <span><img class="ingredient mx-1" src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-fruits-nature-resource-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"/></span>
+                                            <!-- Chocolate -->
+                                            <span><img class="ingredient mx-1" src="https://img.icons8.com/ios/50/000000/chocolate-bar--v1.png"/></span>
+                                        {% endif %}
+                                        {% if product.category.name == 'meet_cheese' %}
+                                            <!-- Salami -->
+                                            <span><img class="ingredient mx-1" src="https://img.icons8.com/ios/50/000000/salami.png"/></span>
+                                            <!-- Cheese -->
+                                            <span><img class="ingredient mx-1" src="https://img.icons8.com/ios/50/000000/cheese.png"/></span>
+                                        {% endif %}
+                                        {% if product.category.name == 'veggies_fruits' %}
+                                            <!-- Fruits -->
+                                            <span><img class="ingredient mx-1" src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-fruits-nature-resource-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"/></span>
+                                            <!-- Vegetables -->
+                                            <span><img class="ingredient mx-1" src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-vegetables-health-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"/></span>
+                                        {% endif %}
+                                    </div>
                             </div>
                         </div>
                     </div>
