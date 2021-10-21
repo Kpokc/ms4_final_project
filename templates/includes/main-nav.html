@@ -1,25 +1,28 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
         <li class="nav-item active">
-            <a class="nav-link logo-font font-weight-bold nav-link text-black mr-4" href="{% url 'products' %}">Shop All</a>
+            <a class="btn2 nav-link logo-font font-weight-bold nav-link text-black mr-4" href="{% url 'products' %}" id="top-menu-btn">Shop All</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link logo-font font-weight-bold nav-link text-black mr-4" href="{% url 'products' %}?category=chocolate">Chocolate Bouquets</a>
+            <a class="btn2 nav-link logo-font font-weight-bold nav-link text-black mr-4" href="{% url 'products' %}?category=chocolate">Chocolate Bouquets</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link logo-font font-weight-bold nav-link text-black mr-4" href="{% url 'products' %}?category=meet_cheese">Meet &amp; Cheese</a>
+            <a class="btn2 nav-link logo-font font-weight-bold nav-link text-black mr-4" href="{% url 'products' %}?category=meet_cheese">Meet &amp; Cheese</a>
         </li>
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="btn2 logo-font font-weight-bold nav-link text-black mr-5" href="" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Veggies &amp; Fruits
             </a>
             <div class="dropdown-menu border-0 shadow-sm" aria-labelledby="clothing-link">
-                <a href="{% url 'products' %}?q=veggies" class="dropdown-item">Veggies</a>
-                <a href="{% url 'products' %}?q=fruit" class="dropdown-item">Fruits</a>
+                <a href="{% url 'products' %}?q=veggies" class="btn2 dropdown-item">Veggies</a>
+                <a href="{% url 'products' %}?q=fruit" class="btn2 dropdown-item">Fruits</a>
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link logo-font font-weight-bold nav-link text-black mr-4" href="#">Contact Us</a>
+            <a class="btn2 nav-link logo-font font-weight-bold nav-link text-black mr-4" href="#">Contact Us</a>
         </li>
+        <!-- <li class="nav-item">
+            <a class="btn2 btn3 nav-link logo-font font-weight-bold nav-link text-black mr-4" href="#">Button 6</a>
+        </li> -->
     </ul>
 </div>
