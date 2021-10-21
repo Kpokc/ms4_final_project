@@ -244,6 +244,7 @@ input[name='q']::placeholder {
     transition: 1s;
 }
 /* On scroll JQ will add to logo and topnav */
+
 .spec-topnav-small {
     padding: 0px;
 }
@@ -253,6 +254,55 @@ input[name='q']::placeholder {
     transition: 1s;
 } 
 
+/* Modal window next/prev arrows change to black */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  background-image: none;
+}
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 55px;
+  color: rgb(0, 0, 0);
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  color: rgb(0, 0, 0);
+}
+
+/* back to top button */
+.to-top-btn {
+    display: none;
+    transform: translateY(100px) rotate(360deg);
+    transition: all 1s ease
+}
+
+.back-to-top-btn {
+    border-radius: 50% !important;
+    transform: translateY(0px);
+    filter: drop-shadow(1px 2px 1px black);
+    transition: all 1s ease
+}
+
+/* Carusel title and description */
+
+.carusel-text {
+    color: #464646;
+    text-shadow: 0px 1px 1px #464646;
+    letter-spacing: .5px;
+}
+
+p.carusel-text{
+    font-size: 1.3rem;
+    margin-bottom: 1.5em;
+}
 
 /* --------------------------------- Media queries */
 

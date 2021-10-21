@@ -112,7 +112,7 @@
             </div>
         </div>
     </div>
-    <div class="btt-button shadow-sm rounded-0 border border-black">
+    <div class="btt-button shadow-sm rounded-0 border border-black to-top-btn">
         <a class="btt-link d-flex h-100">
             <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
         </a>	
@@ -123,7 +123,7 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+          <h6 class="modal-title carusel-text" id="staticBackdropLabel">Deliciously Unique Edible Gifts <br> perfect for Every Occasion!</h6>
           <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -137,24 +137,31 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="https://www.incredibleflowers.ie/admin/data/product/61/l-edible-arrangement-strawberry-dream-ireland.jpg" alt="First slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>non aspernatur. Maxime, ab!</h5>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aliquam omnis facilis, eius commodi labore nemo consequuntur repellat, hic, </p>
-                            </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="https://img.grouponcdn.com/deal/3Gco9ibroHgkYnx83qbV8aZ3GYTD/3G-705x422/v1/c870x524.jpg" alt="Second slide">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>non aspernatur. Maxime, ab!</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aliquam omnis facilis, eius commodi labore nemo consequuntur repellat, hic, </p>
+                        <h6 class="carusel-text">You can make any occasion extra-special with our array of irresistible products.</h6>
+                        <img class="d-block w-100" src="https://final-ms4-app.s3.amazonaws.com/media/baby_girl_600x.png" alt="First slide">
+                        <div class="carousel-caption d-none d-md-block"> 
+                            <!-- <p class="carusel-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aliquam omnis facilis, eius commodi labore nemo consequuntur repellat, hic, </p> -->
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="https://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2016/02/11/931/524/694940094001_4750859102001_2d581de4-0a4c-4d62-856f-08d5f94c2040.jpg?ve=1&tl=1" alt="Third slide">
+                        <h6 class="carusel-text">We combine fresh fruit and chocolate-dipped fruit to provide you with the best gourmet.</h6>
+                        <img class="d-block w-100" src="https://final-ms4-app.s3.amazonaws.com/media/Allure_ChocolateBloomsEdibleBouquet3_600x.png" alt="Second slide">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5 class="text-black">itaque asperiores corrupti non aspernatur. Maxime, ab!</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aliquam omnis facilis, eius commodi labore nemo consequuntur repellat, hic, </p>
+                            <!-- <p class="carusel-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aliquam omnis facilis, eius commodi labore nemo consequuntur repellat, hic, </p> -->
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <h6 class="carusel-text">Every piece of produce we use meets the highest standards of quality, freshness and more.</h6>
+                        <img class="d-block w-100" src="https://final-ms4-app.s3.amazonaws.com/media/Beer_Meat_CheeseLunchBunchsmall2_600x.png" alt="Second slide">
+                        <div class="carousel-caption d-none d-md-block">
+                            <!-- <p class="carusel-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aliquam omnis facilis, eius commodi labore nemo consequuntur repellat, hic, </p> -->
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <h6 class="carusel-text">Our fruit bouquets are designed to resemble flowers, and include a variety of fruit.</h6>
+                        <img class="d-block w-100" src="https://final-ms4-app.s3.amazonaws.com/media/lady_in_red_600x.png" alt="Third slide">
+                        <div class="carousel-caption d-none d-md-block">
+                            <!-- <p class="carusel-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aliquam omnis facilis, eius commodi labore nemo consequuntur repellat, hic, </p> -->
                         </div>
                     </div>
                 </div>
@@ -166,12 +173,12 @@
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="sr-only">Next</span>
                 </a>
-              </div>
+            </div>
         </div>
-        <div class="modal-footer">
+        <!-- <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary">Understood</button>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -199,6 +206,10 @@
                 now.setTime(expireTime);
                 document.cookie = 'modal_shown=ok;expires='+now.toUTCString()+';path=/';
             }
+
+            $(".close").click(function(){
+                myModal.toggle();
+            });
         });
 
         // On scroll dow / up adjust top navigation bar
@@ -207,10 +218,12 @@
                 $('.logo-img').addClass('spec-logo-small');
                 $('#topnav').addClass('spec-topnav-small');
                 $('.navbar').addClass('spec-topnav-small');
+                $('.to-top-btn').addClass('back-to-top-btn').fadeIn(300);
             } else {
                 $('.logo-img').removeClass('spec-logo-small');
                 $('#topnav').removeClass('spec-topnav-small');
                 $('.navbar').removeClass('spec-topnav-small');
+                $('.to-top-btn').removeClass('back-to-top-btn');
             }
         });
 
@@ -218,7 +231,10 @@
 
     <script type="text/javascript">
 		$('.btt-link').click(function(e) {
-			window.scrollTo(0,0)
+			window.scrollTo({
+                top: 0, 
+                behavior: "smooth"
+            });
 		})
 	</script>
     
