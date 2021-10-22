@@ -13,7 +13,19 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col text-center mt-3">
-            <h2 class="logo-font">All Bouquets</h2>
+            <h2 class="logo-font">
+                {% if current_categories %}
+                    {% for category in current_categories %}
+                        {{ category.friendly_name }}
+                    {% endfor %}
+                {% else %}
+                    {% if search_term %}
+                        {{ search_term }} Bouquets
+                    {% else %}
+                        All Bouquets
+                    {% endif %}
+                {% endif %}
+            </h2>
             <hr class="w-50 mb-1">
         </div>
     </div>
