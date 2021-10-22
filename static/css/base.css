@@ -305,11 +305,11 @@ p.carusel-text{
 }
 
 /* CSS Button effects (btn2 class) */
-.btn2 {
+.btn2, .btn3 {
     position: relative;
 }
 
-.btn2::before, .btn2::after {
+.btn2::before, .btn2::after, .btn3::before {
     content: '';
     position: absolute;
     left: 0px;
@@ -324,7 +324,7 @@ p.carusel-text{
     transition: transform 0.4s cubic-bezier(1, 0, 0, 1)
 }
 
-.btn2::before {
+.btn2::before, .btn3::before {
     bottom: 0px;
     -webkit-transform-origin: left top;
     -ms-transform-origin: left top;
@@ -338,7 +338,7 @@ p.carusel-text{
     transform-origin: right top;
 }
   
-.btn2:hover::before {
+.btn2:hover::before, .btn3:hover::before {
     -webkit-transform-origin: right top;
     -ms-transform-origin: right top;
     transform-origin: right top;

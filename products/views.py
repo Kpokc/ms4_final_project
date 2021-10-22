@@ -7,6 +7,8 @@ from django.db.models.functions import Lower
 from .models import Product, Category
 from .forms import ProductForm
 
+import random
+
 # Create your views here.
 
 
@@ -61,11 +63,23 @@ def products(request):
 
 
 def product_detail(request, product_id):
-    """ A view to show individual product details """
+    """ A view to show individual product details and five random products"""
 
     product = get_object_or_404(Product, pk=product_id)
 
+    categories = []
+    random_products = []
+
+    products = Product.objects.all()
+
+    categories.append(product.category.name)
+    products = products.filter(category__name__in=categories)
+    #categories = Category.objects.filter(name__in=categories)
+
+    random_products = random.choices(products, k=5)
+
     context = {
+        'random_products': random_products,
         'product': product,
     }
 
