@@ -155,22 +155,22 @@
         );
 
         // Change item price depending on size
-        // const input = document.querySelector('select');
-        // const base_price = {{ product.price }};
+        const input = document.querySelector('select');
+        const base_price = {{ product.price }};
 
-        // input.addEventListener('change', updateValue);
+        input.addEventListener('change', updateValue);
 
-        // function updateValue(e) {
-        //     if (e.target.value === 'small'){
-        //         $('.item-price').text('$'+(base_price).toFixed(2));
-        //     }
-        //     if (e.target.value === 'medium'){
-        //         $('.item-price').text('$'+(base_price*1.25).toFixed(2));
-        //     }
-        //     if (e.target.value === 'large'){
-        //         $('.item-price').text('$'+(base_price*1.35).toFixed(2));
-        //     }
-        // }
+        function updateValue(e) {
+            if (e.target.value === 'small'){
+                $('.item-price').text('$'+(base_price).toFixed(2));
+            }
+            if (e.target.value === 'medium'){
+                $('.item-price').text('$'+(base_price*1.25).toFixed(2));
+            }
+            if (e.target.value === 'large'){
+                $('.item-price').text('$'+(base_price*1.35).toFixed(2));
+            }
+        }
 
 </script>
 

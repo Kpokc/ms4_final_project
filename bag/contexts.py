@@ -7,7 +7,7 @@ from products.models import Product
 def bag_contents(request):
 
     bag_items = []
-    total = 0
+    total = 0.00
     product_count = 0
     bag = request.session.get('bag', {})
 
@@ -24,7 +24,12 @@ def bag_contents(request):
         else:
             product = get_object_or_404(Product, pk=item_id)
             for size, quantity in item_data['items_by_size'].items():
-                total += quantity * product.price
+                if size == "small":
+                    total += float(quantity) * float(product.price)
+                if size == "medium":
+                    total += float(quantity) * float(product.price) * 1.25
+                if size == "large":
+                    total += float(quantity) * float(product.price) * 1.35
                 product_count += quantity
                 bag_items.append({
                     'item_id': item_id,
