@@ -37,6 +37,7 @@
                             </thead>
 
                             {% for item in bag_items %}
+                            {{item.size}}
                                 <tr>
                                     <td class="p-3 w-25">
                                         {% if item.product.image %}
@@ -78,7 +79,7 @@
                                                             </span>
                                                         </button>
                                                     </div>
-                                                    {% if item.product.has_sizes %}
+                                                    {% if item.size %}
                                                         <input type="hidden" name="product_size" value="{{ item.size }}">
                                                     {% endif %}
                                                 </div>
@@ -153,7 +154,7 @@
         var itemId = $(this).attr('id').split('remove_')[1];
         var size = $(this).data('size');
         var url = `/bag/remove/${itemId}/`;
-        var data = {'csrfmiddlewaretoken': csrfToken, 'size': size};
+        var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
 
         $.post(url, data)
          .done(function() {
