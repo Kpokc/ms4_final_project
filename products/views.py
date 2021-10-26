@@ -74,9 +74,11 @@ def product_detail(request, product_id):
 
     categories.append(product.category.name)
     products = products.filter(category__name__in=categories)
-    #categories = Category.objects.filter(name__in=categories)
 
+    # get 5 random products
     random_products = random.choices(products, k=5)
+    #remove duplicate products from list
+    random_products = list(dict.fromkeys(random_products))
 
     context = {
         'random_products': random_products,

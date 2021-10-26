@@ -13,13 +13,14 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-md-6 col-lg-4 offset-lg-2 d-flex">
-                <div class="col-2">
+                <div class="col-2 small-img-container">
                     <!-- Show five random products from same category -->
                     <div class="mt-5"></div>
+                    <p>Similar:</p>
                     {% for r_product in random_products %}
                     <div class="image-container my-3 card-shadow">
                         <a href="{% url 'product_detail' r_product.id %}">
-                            <img class="card-img-top img-fluid check-img-url" src="{{ r_product.image.url }}" alt="{{ r_product.name }}" onError="this.onerror=null;this.src='{{ MEDIA_URL }}noimage.png';" loading="lazy" />
+                            <img class="card-img-top img-fluid get-img" src="{{ r_product.image.url }}" alt="{{ r_product.name }}" onError="this.onerror=null;this.src='{{ MEDIA_URL }}noimage.png';" loading="lazy" />
                         </a>
                     </div>
                     {% endfor %}
@@ -28,7 +29,10 @@
                     <div class="image-container my-5 card-shadow">
                         {% if product.image %}
                             <a href="{{ product.image.url }}" target="_blank">
-                                <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" onError="this.onerror=null;this.src='{{ MEDIA_URL }}noimage.png';" />
+                                <img class="card-img-top img-fluid main-img" src="{{ product.image.url }}" alt="{{ product.name }}" onError="this.onerror=null;this.src='{{ MEDIA_URL }}noimage.png';" />
+                            </a>
+                            <a href="" target="_blank">
+                                <img class="card-img-top img-fluid pass-img" src="" alt="{{ product.name }}" onError="this.onerror=null;this.src='{{ MEDIA_URL }}noimage.png';" />
                             </a>
                             {% else %}
                             <a href="">
@@ -132,6 +136,26 @@
 
 {% block postloadjs %}
 {{ block.super }}
+
+<script>
+
+        // Make small image bigger
+        $('.small-img-container').hover(
+            function(){
+                $('.get-img').hover(function(){
+                    let get_src = $(this).attr('src');
+                    $('.pass-img').attr('src',get_src);
+                    $('.main-img').css("display","none");
+                    $('.pass-img').css("display","block");
+                });
+            },function() {
+                $('.pass-img').css("display","none");
+                $('.main-img').css("display","block");
+            }
+        );
+
+</script>
+
 
 {% include 'products/includes/quantity_input.html' %}
 {% endblock %}

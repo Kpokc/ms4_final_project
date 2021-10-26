@@ -401,6 +401,10 @@ p.carusel-text{
     text-align: center;
 }
 
+.pass-img {
+    display: none;
+}
+
 /* --------------------------------- Media queries */
 
 /* Slightly larger container on xl screens */
