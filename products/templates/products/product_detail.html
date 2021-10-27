@@ -65,7 +65,7 @@
                             {% if s %}
                             <div class="col-12">
                                 <p><strong>Size:</strong></p>
-                                <input type="text" id="item-price" name="item_price" value="{{ product.price }}">
+                                <input type="hidden" id="item-price" name="item_price" value="{{ product.price }}">
                                 <select class="form-control rounded-0 w-50" name="product_size" id='id_product_size'>
                                     <option value="small" selected>SMALL</option>
                                     <option value="medium">MEDIUM</option>

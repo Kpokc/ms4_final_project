@@ -10,7 +10,7 @@ def calc_subtotal(price, quantity):
 
 
 @register.filter(name='price_by_size')
-def calc_size_price(price, size):
+def price_by_size(price, size):
 
     if size == "small":
         return format(float(price * 1), ".2f")
