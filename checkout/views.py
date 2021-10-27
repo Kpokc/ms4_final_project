@@ -36,6 +36,7 @@ def checkout(request):
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
+        print(bag)
 
         form_data = {
             'full_name': request.POST['full_name'],
@@ -54,6 +55,7 @@ def checkout(request):
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
+            print(order)
             order.save()
             for item_id, item_data in bag.items():
                 try:
@@ -74,6 +76,7 @@ def checkout(request):
                                 size=size,
                             )
                             order_line_item.save()
+
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your bag wasn't found in our database. "

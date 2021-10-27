@@ -65,6 +65,7 @@
                             {% if s %}
                             <div class="col-12">
                                 <p><strong>Size:</strong></p>
+                                <input type="text" id="item-price" name="item_price" value="{{ product.price }}">
                                 <select class="form-control rounded-0 w-50" name="product_size" id='id_product_size'>
                                     <option value="small" selected>SMALL</option>
                                     <option value="medium">MEDIUM</option>
@@ -163,12 +164,15 @@
         function updateValue(e) {
             if (e.target.value === 'small'){
                 $('.item-price').text('$'+(base_price).toFixed(2));
+                $('#item-price').val((base_price).toFixed(2));
             }
             if (e.target.value === 'medium'){
                 $('.item-price').text('$'+(base_price*1.25).toFixed(2));
+                $('#item-price').val((base_price*1.25).toFixed(2));
             }
             if (e.target.value === 'large'){
                 $('.item-price').text('$'+(base_price*1.35).toFixed(2));
+                $('#item-price').val((base_price*1.35).toFixed(2));
             }
         }
 

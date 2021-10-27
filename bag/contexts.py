@@ -20,26 +20,28 @@ def bag_contents(request):
                 'item_id': item_id,
                 'quantity': item_data,
                 'product': product,
+                'total': total,
             })
         else:
             product = get_object_or_404(Product, pk=item_id)
             for size, quantity in item_data['items_by_size'].items():
                 if size == "small":
-                    total += float(quantity) * float(product.price)
+                    total += float(quantity * product.price)
                 if size == "medium":
-                    total += float(quantity) * float(product.price) * 1.25
+                    total += float(quantity * product.price) * 1.25
                 if size == "large":
-                    total += float(quantity) * float(product.price) * 1.35
+                    total += float(quantity * product.price) * 1.35
                 product_count += quantity
                 bag_items.append({
                     'item_id': item_id,
                     'quantity': quantity,
                     'product': product,
                     'size': size,
+                    'total': total,
                 })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
-        delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
+        delivery = total * float(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
     else:
         delivery = 0
