@@ -181,6 +181,14 @@
             }
         });
 
+        $(window).scroll(function(){
+            if($(document).scrollTop() > 120) {
+                $('.total-bag-sum').addClass('total-bag-sum-translate');
+            } else {
+                $('.total-bag-sum').removeClass('total-bag-sum-translate');
+            }
+        });
+
     </script>
 
     <script type="text/javascript">

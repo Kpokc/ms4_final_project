@@ -405,6 +405,18 @@ p.carusel-text{
     display: none;
 }
 
+/* Shopping bag */
+
+.total-bag-sum {
+    position: fixed!important;
+    transition: transform 0.4s ease;
+}
+
+.total-bag-sum-translate {
+    transform: translateY(-150px)!important;
+    transition: transform 0.4s ease;
+}
+
 /* --------------------------------- Media queries */
 
 /* Slightly larger container on xl screens */

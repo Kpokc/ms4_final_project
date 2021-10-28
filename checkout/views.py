@@ -36,7 +36,6 @@ def checkout(request):
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
-        print(bag)
 
         form_data = {
             'full_name': request.POST['full_name'],
@@ -55,7 +54,6 @@ def checkout(request):
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
-            print(order)
             order.save()
             for item_id, item_data in bag.items():
                 try:
@@ -145,7 +143,6 @@ def checkout_success(request, order_number):
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
-    print(order)
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)

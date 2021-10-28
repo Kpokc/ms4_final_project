@@ -22,7 +22,7 @@
         </div>
 
         <div class="row">
-            <div class="col">
+            <div class="col-8">
                 {% if bag_items %}
                     <div class="table-responsive rounded">
                         <table class="table table-sm table-borderless">
@@ -37,10 +37,10 @@
                             </thead>
 
                             {% for item in bag_items %}
-                                <tr>
+                                <tr class="bg-light card-shadow">
                                     <td class="p-3 w-25">
                                         {% if item.product.image %}
-                                            <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                                            <img class="img-fluid rounded"  style="height: 175px;" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
                                         {% else %}
                                             <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
                                         {% endif %}
@@ -96,34 +96,6 @@
                                     </td>
                                 </tr>
                             {% endfor %}
-                            <tr>
-                                <td colspan="5" class="pt-5 text-right">
-                                    <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
-                                    <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
-                                    <h4 class="mt-4"><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
-                                    {% if free_delivery_delta > 0 %}
-                                        <p class="mb-1 text-danger">
-                                            You could get free delivery by spending just <strong>${{ free_delivery_delta }}</strong> more!
-                                        </p>
-                                    {% endif %}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="5" class="text-right">
-                                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                                        <span class="icon">
-                                            <i class="fas fa-chevron-left"></i>
-                                        </span>
-                                        <span class="text-uppercase">Keep Shopping</span>
-                                    </a>
-                                    <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
-                                        <span class="text-uppercase">Secure Checkout</span>
-                                        <span class="icon">
-                                            <i class="fas fa-lock"></i>
-                                        </span>
-                                    </a>
-                                </td>
-                            </tr>
                         </table>
                     </div>
                 {% else %}
@@ -136,6 +108,39 @@
                     </a>
                 {% endif %}
             </div>
+            <div class="col-4">
+                <div class="total-bag-sum position-fixed bg-light card-shadow p-2">
+                    <tr>
+                        <td colspan="5" class="pt-5 text-right">
+                            <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
+                            <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
+                            <h4 class="mt-4"><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
+                            {% if free_delivery_delta > 0 %}
+                                <p class="mb-1 text-danger">
+                                    You could get free delivery by spending just <strong>${{ free_delivery_delta }}</strong> more!
+                                </p>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="text-right">
+                            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                                <span class="icon">
+                                    <i class="fas fa-chevron-left"></i>
+                                </span>
+                                <span class="text-uppercase">Keep Shopping</span>
+                            </a>
+                            <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
+                                <span class="text-uppercase">Secure Checkout</span>
+                                <span class="icon">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+                </div>
+            </div>
+
         </div>
     </div>
     <div class="btt-button shadow-sm rounded-0 border border-black to-top-btn">
