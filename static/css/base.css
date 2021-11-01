@@ -116,6 +116,10 @@ input[name='q']::placeholder {
     color: #aab7c4;
 }
 
+.order-confirmation-wrapper {
+    word-wrap: break-word;
+}
+
 /* ------------------------------- bootstrap toasts */
 
 .message-container {
@@ -243,11 +247,6 @@ input[name='q']::placeholder {
 .logo-img,#topnav,.navbar {
     transition: 1s;
 }
-/* On scroll JQ will add to logo and topnav */
-
-.spec-topnav-small {
-    padding: 0px;
-}
 
 .spec-logo-small {
     height: 75px!important;
@@ -288,7 +287,8 @@ input[name='q']::placeholder {
     border-radius: 50% !important;
     transform: translateY(0px);
     filter: drop-shadow(1px 2px 1px black);
-    transition: all 1s ease
+    transition: all 1s ease;
+    z-index: 999;
 }
 
 /* Carusel title and description */
@@ -421,9 +421,15 @@ p.carusel-text{
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
+    .container {
+        max-width: 80%;
+    }
+
+  /* On scroll JQ will add to logo and topnav */
+
+    .spec-topnav-small {
+        padding: 0px;
+    }
 }
 
 /* fixed top navbar only on medium and up */
@@ -443,8 +449,24 @@ p.carusel-text{
 
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    .modal {
+        padding-right: 0px;
+    }
+
     .header-container {
-        padding-top: 116px;
+        padding-top: 140px;
+    }
+
+    .card-body {
+        padding: 0.5rem 1rem 1rem 1rem;
     }
 
     body {
@@ -468,6 +490,19 @@ p.carusel-text{
         font-size: 1rem;
     }
 
+    .navbar {
+        padding: 0.5rem 0.5rem;
+    }
+
+    .list-inline-item {
+        margin-top: 0.5rem;
+    }
+
+    .checkout-row {
+        margin-right: -12px;
+        margin-left: -12px;
+    }
+
     #delivery-banner h4 {
         font-size: .9rem;
     }
@@ -485,5 +520,14 @@ p.carusel-text{
 
     .increment-qty, .decrement-qty {
         padding: .25rem .5rem !important;
+    }
+
+    /* Product detail */
+    #input-group {
+        width: 100%;
+    }
+
+    #id_product_size {
+        width: 50% !important;
     }
 }

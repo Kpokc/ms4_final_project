@@ -29,6 +29,7 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <script src="https://js.stripe.com/v3/"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     {% endblock %}
 
     {% block extra_js %}
@@ -40,7 +41,7 @@
     <header class="container-fluid fixed-top shadow-sm">
         <div id="delivery-banner" class="row text-center">
             <div class="col bg-black text-white">
-                <h6 class="logo-font my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h6>                
+                <h6 class="logo-font my-1">Free delivery on orders over &euro;{{ free_delivery_threshold }}!</h6>                
             </div>            
         </div>
         <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
