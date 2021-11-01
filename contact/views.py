@@ -8,8 +8,8 @@ import smtplib
 from email.message import EmailMessage
 
 
-EMAIL_ADDRESS = os.environ.get('EMAIL_ADDRESS')
-EMAIL_PASSWORD = os.environ.get('EMAIL_PASSWORD')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASS = os.environ.get('EMAIL_HOST_PASS')
 
 def contact(request):
     """ Send email to customer and to site owner """
@@ -19,8 +19,8 @@ def contact(request):
         message = request.POST['message']
         msg = EmailMessage()
         msg['Subject'] = 'Edible Bouquets query'
-        msg['From'] = 'EdibleBouquets@gmail.com' 
-        msg['To'] = [request.POST['email'], EMAIL_ADDRESS]
+        msg['From'] = EMAIL_HOST_USER
+        msg['To'] = [request.POST['email'], EMAIL_HOST_USER]
         msg.set_content('''
         <!DOCTYPE html>
         <html>
@@ -46,7 +46,7 @@ def contact(request):
 
 
         with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-            smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD) 
+            smtp.login(EMAIL_HOST_USER, EMAIL_HOST_PASS) 
             smtp.send_message(msg)
         
         #return render(request, 'contact/message_sent.html')

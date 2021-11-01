@@ -417,6 +417,11 @@ p.carusel-text{
     transition: transform 0.4s ease;
 }
 
+.bag-img {
+    height: 115px;
+}
+
+
 /* --------------------------------- Media queries */
 
 /* Slightly larger container on xl screens */
@@ -445,6 +450,7 @@ p.carusel-text{
     .header-container {
         padding-top: 230px;
     }
+
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */
@@ -530,4 +536,10 @@ p.carusel-text{
     #id_product_size {
         width: 50% !important;
     }
+
+    .checkout-buttons{
+        width: 65%;
+        margin: 10px;
+    }
+
 }
