@@ -421,6 +421,11 @@ p.carusel-text{
     height: 115px;
 }
 
+.update-button:hover {
+    color: ivory;
+    background-color: rgb(150, 150, 150);
+}
+
 
 /* --------------------------------- Media queries */
 
