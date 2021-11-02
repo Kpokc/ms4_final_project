@@ -14,6 +14,7 @@
     <div class="row">
         <div class="col text-center mt-3">
             <h2 class="logo-font">
+                <!-- Category name or search query as header -->
                 {% if current_categories %}
                     {% for category in current_categories %}
                         {{ category.friendly_name }}
@@ -31,6 +32,7 @@
     </div>
     <div class="row">
         <div class="product-container col-10 offset-1">
+            <!-- sorting section -->
             <div class="row mt-1 mb-2">
                 <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                     <div class="sort-select-wrapper card-shadow w-50">
@@ -57,11 +59,10 @@
                 </div>
             </div>
             <div class="row mb-5">
+                <!-- loop thrugh all products -->
                 {% for product in products %}
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                        
                         <div class="card h-100 border card-shadow">
-                        
                             {% if product.image %}
                             <a href="{% url 'product_detail' product.id %}">
                                 <img class="card-img-top img-fluid check-img-url" src="{{ product.image.url }}" alt="{{ product.name }}" onError="this.onerror=null;this.src='{{ MEDIA_URL }}noimage.png';" loading="lazy" />
@@ -77,7 +78,7 @@
                                 <div class="card-footer bg-white pt-0 border-0 text-left">
                                     <div class="row">
                                         <div class="col">
-                                            <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                                            <p class="lead mb-0 text-left font-weight-bold">€{{ product.price }}</p>
                                             {% if product.category %}
                                             <p class="small mt-1 mb-0">
                                                 <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
@@ -90,6 +91,7 @@
                                             {% else %}
                                                 <small class="text-muted">No Rating</small>
                                             {% endif %}
+                                            <!-- Edit product if superuser -->
                                             {% if request.user.is_superuser %}
                                                 <small class="ml-3">
                                                     <a href="{% url 'edit_product' product.id %}">Edit</a> | 
@@ -99,6 +101,7 @@
                                         </div>
                                     </div>
                                 </div>
+                            <!-- Product card hover block -->
                             <div class="hidden-body">
                                 <div class="size mb-2">
                                     <h5 class="mb-1">Size:</h5>
@@ -109,21 +112,21 @@
                                     <div class="imgredients">
                                         <h5 class="mb-2">Ingredients:</h5>
                                         {% if product.category.name == 'chocolate' %}
-                                            <!-- Fruits -->
+                                            <!-- Fruits icon -->
                                             <span><img class="ingredient mx-1" src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-fruits-nature-resource-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"/></span>
-                                            <!-- Chocolate -->
+                                            <!-- Chocolate icon -->
                                             <span><img class="ingredient mx-1" src="https://img.icons8.com/ios/50/000000/chocolate-bar--v1.png"/></span>
                                         {% endif %}
                                         {% if product.category.name == 'meet_cheese' %}
-                                            <!-- Salami -->
+                                            <!-- Salami icon -->
                                             <span><img class="ingredient mx-1" src="https://img.icons8.com/ios/50/000000/salami.png"/></span>
-                                            <!-- Cheese -->
+                                            <!-- Cheese icon -->
                                             <span><img class="ingredient mx-1" src="https://img.icons8.com/ios/50/000000/cheese.png"/></span>
                                         {% endif %}
                                         {% if product.category.name == 'veggies_fruits' %}
-                                            <!-- Fruits -->
+                                            <!-- Fruits icon -->
                                             <span><img class="ingredient mx-1" src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-fruits-nature-resource-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"/></span>
-                                            <!-- Vegetables -->
+                                            <!-- Vegetables icon -->
                                             <span><img class="ingredient mx-1" src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-vegetables-health-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"/></span>
                                         {% endif %}
                                     </div>
@@ -160,70 +163,62 @@
         </a>	
     </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h6 class="modal-title carusel-text" id="staticBackdropLabel">Deliciously Unique Edible Gifts <br> perfect for Every Occasion!</h6>
-          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <h6 class="carusel-text">You can make any occasion extra-special with our array of irresistible products.</h6>
-                        <img class="d-block w-100" src="https://final-ms4-app.s3.amazonaws.com/media/baby_girl_600x.png" alt="First slide">
-                        <div class="carousel-caption d-none d-md-block"> 
-                            <!-- <p class="carusel-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aliquam omnis facilis, eius commodi labore nemo consequuntur repellat, hic, </p> -->
+    <!-- Modal carusel block-->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h6 class="modal-title carusel-text" id="staticBackdropLabel">Deliciously Unique Edible Gifts <br> perfect for Every Occasion!</h6>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <h6 class="carusel-text">You can make any occasion extra-special with our array of irresistible products.</h6>
+                            <img class="d-block w-100" src="https://final-ms4-app.s3.amazonaws.com/media/baby_girl_600x.png" alt="First slide">
+                            <div class="carousel-caption d-none d-md-block"> 
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <h6 class="carusel-text">We combine fresh fruit and chocolate-dipped fruit to provide you with the best gourmet.</h6>
+                            <img class="d-block w-100" src="https://final-ms4-app.s3.amazonaws.com/media/Allure_ChocolateBloomsEdibleBouquet3_600x.png" alt="Second slide">
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <h6 class="carusel-text">Every piece of produce we use meets the highest standards of quality, freshness and more.</h6>
+                            <img class="d-block w-100" src="https://final-ms4-app.s3.amazonaws.com/media/Beer_Meat_CheeseLunchBunchsmall2_600x.png" alt="Second slide">
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <h6 class="carusel-text">Our fruit bouquets are designed to resemble flowers, and include a variety of fruit.</h6>
+                            <img class="d-block w-100" src="https://final-ms4-app.s3.amazonaws.com/media/lady_in_red_600x.png" alt="Third slide">
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <h6 class="carusel-text">We combine fresh fruit and chocolate-dipped fruit to provide you with the best gourmet.</h6>
-                        <img class="d-block w-100" src="https://final-ms4-app.s3.amazonaws.com/media/Allure_ChocolateBloomsEdibleBouquet3_600x.png" alt="Second slide">
-                        <div class="carousel-caption d-none d-md-block">
-                            <!-- <p class="carusel-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aliquam omnis facilis, eius commodi labore nemo consequuntur repellat, hic, </p> -->
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <h6 class="carusel-text">Every piece of produce we use meets the highest standards of quality, freshness and more.</h6>
-                        <img class="d-block w-100" src="https://final-ms4-app.s3.amazonaws.com/media/Beer_Meat_CheeseLunchBunchsmall2_600x.png" alt="Second slide">
-                        <div class="carousel-caption d-none d-md-block">
-                            <!-- <p class="carusel-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aliquam omnis facilis, eius commodi labore nemo consequuntur repellat, hic, </p> -->
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <h6 class="carusel-text">Our fruit bouquets are designed to resemble flowers, and include a variety of fruit.</h6>
-                        <img class="d-block w-100" src="https://final-ms4-app.s3.amazonaws.com/media/lady_in_red_600x.png" alt="Third slide">
-                        <div class="carousel-caption d-none d-md-block">
-                            <!-- <p class="carusel-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aliquam omnis facilis, eius commodi labore nemo consequuntur repellat, hic, </p> -->
-                        </div>
-                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                    </a>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
             </div>
         </div>
-        <!-- <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
-        </div> -->
-      </div>
+        </div>
     </div>
-  </div>
   
 
 {% endblock %}
@@ -231,6 +226,7 @@
 {% block postloadjs %}
     {{ block.super }}
     
+    <!-- Sorting -->
     <script type="text/javascript">
         $('#sort-selector').change(function() {
             var selector = $(this);
