@@ -1,9 +1,13 @@
 import json
+import os
+import smtplib
 from django.shortcuts import (
     render, redirect, reverse, get_object_or_404, HttpResponse)
+from email.message import EmailMessage
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
+from django.template.loader import render_to_string
 
 
 import stripe
@@ -187,4 +191,26 @@ def checkout_success(request, order_number):
         'order': order,
     }
 
+    send_confirmation_email(order)
+
     return render(request, template, context)
+
+
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASS = os.environ.get('EMAIL_HOST_PASS')
+
+
+def send_confirmation_email(order):
+    """ Send order confirmation email to customer """
+
+    msg = EmailMessage()
+    msg['Subject'] = 'Edible Bouquets Order confirmation'
+    msg['From'] = EMAIL_HOST_USER
+    msg['To'] = order.email
+
+    msg_html = render_to_string('checkout/order_email.html', {'order': order})
+    msg.set_content(msg_html, subtype='html')
+
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+        smtp.login(EMAIL_HOST_USER, EMAIL_HOST_PASS)
+        smtp.send_message(msg)

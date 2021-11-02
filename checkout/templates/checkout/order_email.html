@@ -1,0 +1,271 @@
+{% load bag_tools %}
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <h2 style="text-align:center">Edible Bouquets - order placed:</h2>
+    <div class="border" style="border: 1px solid grey; box-shadow: rgb(50 50 105 / 15%) 0px 2px 5px 0px, rgb(0 0 0 / 5%) 0px 1px 1px 0px;">
+        <div class="table" style="display:flex; width:50%; margin: auto; height:100%; background-color:rgb(219, 219, 219);">
+            <div class="table" style="width:50%; height:100%;">
+                <div class="row">
+                    <div class="col">
+                        <small class="text-muted">Order Info:</small>
+                    </div>
+                </div>
+            </div>
+            <div class="table" style="width:50%; height:100%; text-align:right;">
+            </div>
+        </div>
+        <hr style="margin: 0 auto; width: 50%;">
+    
+        <div class="table" style="display:flex; width:50%; margin: auto; height:100%; background-color:rgb(219, 219, 219);">
+            <div class="table" style="width:50%; height:100%;">
+                <div class="row">
+                    <div class="col">
+                        <p style="margin: 5px">Order Number:</p>
+                    </div>
+                </div>
+            </div>
+            <div class="table" style="width:50%; height:100%; text-align:right;">
+                <p style="margin: 5px">{{ order.order_number }}</p>
+            </div>
+        </div>
+        <hr style="margin: 0 auto; width: 50%;">
+
+        <div class="table" style="display:flex; width:50%; margin: auto; height:100%; background-color:rgb(219, 219, 219);">
+            <div class="table" style="width:50%; height:100%;">
+                <div class="row">
+                    <div class="col">
+                        <p style="margin: 5px">Order Date:</p>
+                    </div>
+                </div>
+            </div>
+            <div class="table" style="width:50%; height:100%; text-align:right;">
+                <p style="margin: 5px">{{ order.date }}</p>
+            </div>
+        </div>
+        <hr style="margin: 0 auto; width: 50%;">
+
+        <div class="table" style="display:flex; width:50%; margin: auto; height:100%; background-color:rgb(219, 219, 219);">
+            <div class="table" style="width:50%; height:100%;">
+                <div class="row">
+                    <div class="col">
+                        <small class="text-muted">Order Details:</small>
+                    </div>
+                </div>
+            </div>
+            <div class="table" style="width:50%; height:100%; text-align:right;">
+            </div>
+        </div>
+        <hr style="margin: 0 auto; width: 50%;">
+
+        {% for item in order.lineitems.all %}
+    
+        <div class="table" style="display:flex; width:50%; margin: auto; height:100%; background-color:rgb(219, 219, 219);">
+            <div class="table" style="width:50%; height:100%;">
+                <div class="row">
+                    <div class="col">
+                        <p style="margin: 5px">{{ item.product.name }}{% if item.size %} - Size {{ item.size|upper }}{% endif %}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="table" style="width:50%; height:100%; text-align:right;">
+                <p style="margin: 5px">{{ item.quantity }} @ ${{ item.product.price|price_by_size:item.size }} each</p>
+            </div>
+        </div>
+    
+        {% endfor %}
+        <hr style="margin: 0 auto; width: 50%;">
+    
+        <div class="table" style="display:flex; width:50%; margin: auto; height:100%; background-color:rgb(219, 219, 219);">
+            <div class="table" style="width:50%; height:100%;">
+                <div class="row">
+                    <div class="col">
+                        <small class="text-muted">Delivering To:</small>
+                    </div>
+                </div>
+            </div>
+            <div class="table" style="width:50%; height:100%; text-align:right;">
+            </div>
+        </div>
+        <hr style="margin: 0 auto; width: 50%;">
+    
+        <div class="table" style="display:flex; width:50%; margin: auto; height:100%; background-color:rgb(219, 219, 219);">
+            <div class="table" style="width:50%; height:100%;">
+                <div class="row">
+                    <div class="col">
+                        <p style="margin: 5px">Full Name:</p>
+                    </div>
+                </div>
+            </div>
+            <div class="table" style="width:50%; height:100%; text-align:right;">
+                <p style="margin: 5px">{{ order.full_name }}</p>
+            </div>
+        </div>
+        <hr style="margin: 0 auto; width: 50%;">
+    
+        <div class="table" style="display:flex; width:50%; margin: auto; height:100%; background-color:rgb(219, 219, 219);">
+            <div class="table" style="width:50%; height:100%;">
+                <div class="row">
+                    <div class="col">
+                        <p style="margin: 5px">Address 1:</p>
+                    </div>
+                </div>
+            </div>
+            <div class="table" style="width:50%; height:100%; text-align:right;">
+                <p style="margin: 5px">{{ order.street_address1 }}</p>
+            </div>
+        </div>
+        <hr style="margin: 0 auto; width: 50%;">
+    
+        {% if order.street_address2 %}
+    
+            <div class="table" style="display:flex; width:50%; margin: auto; height:100%; background-color:rgb(219, 219, 219);">
+                <div class="table" style="width:50%; height:100%;">
+                    <div class="row">
+                        <div class="col">
+                            <p style="margin: 5px">Address 2:</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="table" style="width:50%; height:100%; text-align:right;">
+                    <p style="margin: 5px">{{ order.street_address1 }}</p>
+                </div>
+            </div>
+    
+        {% endif %}
+        <hr style="margin: 0 auto; width: 50%;">
+    
+        {% if order.county %}
+            <div class="table" style="display:flex; width:50%; margin: auto; height:100%; background-color:rgb(219, 219, 219);">
+                <div class="table" style="width:50%; height:100%;">
+                    <div class="row">
+                        <div class="col">
+                            <p style="margin: 5px">County:</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="table" style="width:50%; height:100%; text-align:right;">
+                   <p style="margin: 5px">{{ order.county }}</p>
+                </div>
+            </div>
+        {% endif %}
+        <hr style="margin: 0 auto; width: 50%;">
+    
+        <div class="table" style="display:flex; width:50%; margin: auto; height:100%; background-color:rgb(219, 219, 219);">
+            <div class="table" style="width:50%; height:100%;">
+                <div class="row">
+                    <div class="col">
+                        <p style="margin: 5px">Town or City</p>
+                    </div>
+                </div>
+            </div>
+            <div class="table" style="width:50%; height:100%; text-align:right;">
+                <p style="margin: 5px">{{ order.town_or_city }}</p>
+            </div>
+        </div>
+        <hr style="margin: 0 auto; width: 50%;">
+    
+        {% if order.postcode %}
+    
+            <div class="table" style="display:flex; width:50%; margin: auto; height:100%; background-color:rgb(219, 219, 219);">
+                <div class="table" style="width:50%; height:100%;">
+                    <div class="row">
+                        <div class="col">
+                            <p style="margin: 5px">Postal Code:</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="table" style="width:50%; height:100%; text-align:right;">
+                    <p style="margin: 5px">{{ order.postcode }}</p>
+                </div>
+            </div>
+        
+        {% endif %}
+        <hr style="margin: 0 auto; width: 50%;">
+    
+        <div class="table" style="display:flex; width:50%; margin: auto; height:100%; background-color:rgb(219, 219, 219);">
+            <div class="table" style="width:50%; height:100%;">
+                <div class="row">
+                    <div class="col">
+                        <p style="margin: 5px">Country:</p>
+                    </div>
+                </div>
+            </div>
+            <div class="table" style="width:50%; height:100%; text-align:right;">
+                <p style="margin: 5px">{{ order.country }}</p>
+            </div>
+        </div>
+        <hr style="margin: 0 auto; width: 50%;">
+    
+        <div class="table" style="display:flex; width:50%; margin: auto; height:100%; background-color:rgb(219, 219, 219);">
+            <div class="table" style="width:50%; height:100%;">
+                <div class="row">
+                    <div class="col">
+                        <p style="margin: 5px">Phone Number:</p>
+                    </div>
+                </div>
+            </div>
+            <div class="table" style="width:50%; height:100%; text-align:right;">
+                <p style="margin: 5px">{{ order.phone_number }}</p>
+            </div>
+        </div>
+        <hr style="margin: 0 auto; width: 50%;">
+    
+        <div class="table" style="display:flex; width:50%; margin: auto; height:100%; background-color:rgb(219, 219, 219);">
+            <div class="table" style="width:50%; height:100%;">
+                <div class="row">
+                    <div class="col">
+                        <small class="text-muted">Billing Info:</small>
+                    </div>
+                </div>
+            </div>
+            <div class="table" style="width:50%; height:100%; text-align:right;">
+            </div>
+        </div>
+        <hr style="margin: 0 auto; width: 50%;">
+    
+        <div class="table" style="display:flex; width:50%; margin: auto; height:100%; background-color:rgb(219, 219, 219);">
+            <div class="table" style="width:50%; height:100%;">
+                <div class="row">
+                    <div class="col">
+                        <p style="margin: 5px">Order Total:</p>
+                    </div>
+                </div>
+            </div>
+            <div class="table" style="width:50%; height:100%; text-align:right;">
+                <p style="margin: 5px">{{ order.order_total }}</p>
+            </div>
+        </div>
+        <hr style="margin: 0 auto; width: 50%;">
+    
+        <div class="table" style="display:flex; width:50%; margin: auto; height:100%; background-color:rgb(219, 219, 219);">
+            <div class="table" style="width:50%; height:100%;">
+                <div class="row">
+                    <div class="col">
+                        <p style="margin: 5px">Delivery:</p>
+                    </div>
+                </div>
+            </div>
+            <div class="table" style="width:50%; height:100%; text-align:right;">
+                <p style="margin: 5px">{{ order.delivery_cost }}</p>
+            </div>
+        </div>
+        <hr style="margin: 0 auto; width: 50%;">
+    
+        <div class="table" style="display:flex; width:50%; margin: auto; height:100%; background-color:rgb(219, 219, 219);">
+            <div class="table" style="width:50%; height:100%;">
+                <div class="row">
+                    <div class="col">
+                        <p style="margin: 5px">Grand Total:</p>
+                    </div>
+                </div>
+            </div>
+            <div class="table" style="width:50%; height:100%; text-align:right;">
+                <p style="margin: 5px">{{ order.grand_total }}</p>
+            </div>
+        </div>
+        <hr style="margin: 0 auto; width: 50%;">
+    </div>
+</body>
+</html>
