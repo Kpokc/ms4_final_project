@@ -143,7 +143,7 @@
     {{ block.super }}
 
     <script type="text/javascript">
-        // set modal show function to cookie time
+        // show madal and write event into cookies
         $(window).on('load',function(){
             if (document.cookie.indexOf('modal_shown=') >= 0) {
             //do nothing if modal_shown cookie is present
@@ -190,6 +190,7 @@
 
     </script>
 
+    <!-- Scroll function, back to top smooth -->
     <script type="text/javascript">
 		$('.btt-link').click(function(e) {
 			window.scrollTo({
@@ -198,11 +199,10 @@
             });
 		})
 	</script>
-        <script type="text/javascript">
-
-            $(document).ready(function(){ $('.toast').toast('show'); });
-
-        </script>
+        
+    <script type="text/javascript">
+        $(document).ready(function(){ $('.toast').toast('show'); });
+    </script>
     {% endblock %}
 
 

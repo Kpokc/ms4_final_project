@@ -16,7 +16,9 @@ def contact(request):
 
     if request.method == 'POST':
         name = request.POST['name']
+        subject = request.POST['subject']
         message = request.POST['message']
+        email = request.POST['email']
         msg = EmailMessage()
         msg['Subject'] = 'Edible Bouquets query'
         msg['From'] = EMAIL_HOST_USER
@@ -25,31 +27,35 @@ def contact(request):
         <!DOCTYPE html>
         <html>
             <body>
-                <div style="background-color:#eee;padding:10px 20px;text-align: center;">
+                <div style="background-color:#eee;padding:10px 20px;text-align:center;">
                     <h2 style="font-family:Georgia, 'Times New Roman', Times, serif;color#454349;">Edible Bouquets</h2>
                 </div>
                 <div style="padding:20px 0px">
                     <div style="height:500px;width:400px;margin: 0 auto;">
                         <div style="text-align:center;">
                             <h3>Your Query Received.</h3>
-                            <p>We appreciate you contacting us {name}. 
+                            <p>We appreciate you contacting us {name}.
                             <br> One of our colleagues will get back in touch with you soon! <br> Have a great day!</p>
-                            <h3>Your query:</h3>
+                            <hr>
+                            <h3>{name} Subject:</h3>
+                            <p>{subject}</p>
+                            <h3>{name} Query:</h3>
                             <p>{message}</p>
-                            <a href="#">Edible Bouquets</a>
+                            <h3>Contact details:</h3>
+                            <p></p>
+                            <a href="https://final-ms4-app.herokuapp.com/">Edible Bouquets</a>
                         </div>
                     </div>
                 </div>
             </body>
         </html>
-        '''.format(name=name, message=message), subtype='html')
+        '''.format(name=name, message=message, subject=subject, email=email), subtype='html')
 
 
         with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-            smtp.login(EMAIL_HOST_USER, EMAIL_HOST_PASS) 
+            smtp.login(EMAIL_HOST_USER, EMAIL_HOST_PASS)
             smtp.send_message(msg)
-        
-        #return render(request, 'contact/message_sent.html')
+
         return redirect(reverse('sent'))
 
     return render(request, 'contact/contact.html')
