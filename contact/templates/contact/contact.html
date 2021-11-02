@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block extra_css %}
-{% endblock %}
-
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -20,21 +17,18 @@
             <hr class="w-50 mb-1">
         </div>
     </div>
-
     <div class="row">
         <div class="product-container col-12 mt-5">
             <div class="col-12 col-lg-4 col-md-8 m-auto mb-5 card-shadow p-3 bg-light border">
                 <form id="contact-form" name="contact-form" method="post" action="{% url 'contact' %}">
                     {% csrf_token %}
-
-                    <div class="row">
+                    <div class="row mt-4">
                         <div class="col-md-6">
                             <div class="md-form mb-0">
                                 <input type="text" id="name" name="name" class="form-control">
                                 <label for="name" class="">Your name</label>
                             </div>
                         </div>
-
                         <div class="col-md-6">
                             <div class="md-form mb-0">
                                 <input type="text" id="email" name="email" class="form-control">
@@ -42,7 +36,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-md-12">
                             <div class="md-form mb-0">
@@ -51,10 +44,8 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-md-12">
-    
                             <div class="md-form">
                                 <textarea style="min-height: 120px;" type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
                                 <label for="message">Your message</label>
@@ -65,9 +56,11 @@
                 </form>
 
                 <div class="text-center">
-                    <a class="btn btn-outline-black rounded-0" onclick="validateForm();">Send</a>
+                    <!-- Call form validation -->
+                    <a class="btn btn-outline-black rounded-0" onclick="validateForm();" style="width: 30%;">Send</a>
                 </div>
-                <div class="status"></div>
+                <!-- Error message -->
+                <div class="status mt-2" style="color: tomato; font-weight: 600;"></div>
             </div>
         </div>
     </div>
@@ -78,39 +71,5 @@
 
 {% block postloadjs %}
     {{ block.super }}
-
-    <!-- Validate form -->
-    <script type="text/javascript">
-        function validateForm() {
-            var name =  document.getElementById('name').value;
-            if (name == "") {
-                document.querySelector('.status').innerHTML = "Name cannot be empty";
-                return false;
-            }
-            var email =  document.getElementById('email').value;
-            if (email == "") {
-                document.querySelector('.status').innerHTML = "Email cannot be empty";
-                return false;
-            } else {
-                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                if(!re.test(email)){
-                    document.querySelector('.status').innerHTML = "Email format invalid";
-                    return false;
-                }
-            }
-            var subject =  document.getElementById('subject').value;
-            if (subject == "") {
-                document.querySelector('.status').innerHTML = "Subject cannot be empty";
-                return false;
-            }
-            var message =  document.getElementById('message').value;
-            if (message == "") {
-                document.querySelector('.status').innerHTML = "Message cannot be empty";
-                return false;
-            }
-            document.querySelector('.status').innerHTML = "Sending...";
-            let myForm = document.getElementById("contact-form").submit();
-        }
-    </script>
-
+    <script type="text/javascript" src="{% static 'contact/js/validation.js' %}"></script>
 {% endblock %}

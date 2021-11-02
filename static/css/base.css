@@ -5,17 +5,16 @@ html {
 body {
 	/* background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;
 	background-size: cover; */
+    background-size: cover;
     background-color: #fdfdfd;
     height: calc(100vh - 230px);
     color: #555;
     font-family: "Lato";
 }
 
-/* .nav-link {
-    display: block;
-    padding: 0.5rem 0.5rem! important;
-} */
-
+.table {
+    width: 99%;
+}
 /* from Bulma */
 .icon {
     align-items: center;
@@ -419,11 +418,6 @@ p.carusel-text{
 
 .bag-img {
     height: 115px;
-}
-
-.update-button:hover {
-    color: ivory;
-    background-color: rgb(150, 150, 150);
 }
 
 
