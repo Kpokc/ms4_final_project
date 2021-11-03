@@ -191,26 +191,27 @@ def checkout_success(request, order_number):
         'order': order,
     }
 
-    send_confirmation_email(order)
+    #send_confirmation_email(order)
 
     return render(request, template, context)
 
 
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASS = os.environ.get('EMAIL_HOST_PASS')
+# def send_confirmation_email(order):
+#     """ Send order confirmation email to customer """
 
+#     EMAIL_HOST_USER = settings.EMAIL_HOST_USER
+#     EMAIL_HOST_PASS = settings.EMAIL_HOST_PASS
 
-def send_confirmation_email(order):
-    """ Send order confirmation email to customer """
+#     print(EMAIL_HOST_USER, EMAIL_HOST_PASS)
 
-    msg = EmailMessage()
-    msg['Subject'] = 'Edible Bouquets Order confirmation'
-    msg['From'] = EMAIL_HOST_USER
-    msg['To'] = order.email
+#     msg = EmailMessage()
+#     msg['Subject'] = 'Edible Bouquets Order confirmation'
+#     msg['From'] = EMAIL_HOST_USER
+#     msg['To'] = order.email
 
-    msg_html = render_to_string('checkout/order_email.html', {'order': order})
-    msg.set_content(msg_html, subtype='html')
+#     msg_html = render_to_string('checkout/order_email.html', {'order': order})
+#     msg.set_content(msg_html, subtype='html')
 
-    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-        smtp.login(EMAIL_HOST_USER, EMAIL_HOST_PASS)
-        smtp.send_message(msg)
+#     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+#         smtp.login(EMAIL_HOST_USER, EMAIL_HOST_PASS)
+#         smtp.send_message(msg)

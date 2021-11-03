@@ -27,6 +27,16 @@
                     {% endif %}
                 {% endif %}
             </h2>
+            {% if EMAIL_HOST_USER %}
+                <p>1</p>
+                {{EMAIL_HOST_USER}}
+                {{EMAIL_HOST_PASS}}
+            {% endif %}<br>
+            {% if EMAIL_HOST_USER2 %}
+            <p>2</p>
+                {{EMAIL_HOST_USER2}}
+                {{EMAIL_HOST_PASS2}}
+            {% endif %}
             <hr class="w-50 mb-1">
         </div>
     </div>

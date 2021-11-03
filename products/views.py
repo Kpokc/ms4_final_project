@@ -1,9 +1,11 @@
 import random
+import os
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
+from django.conf import settings
 
 from .models import Product, Category
 from .forms import ProductForm
@@ -14,6 +16,12 @@ from .forms import ProductForm
 
 def products(request):
     """ A view to show all products, including sorting and search queries """
+
+    EMAIL_HOST_USER = settings.EMAIL_HOST_USER
+    EMAIL_HOST_PASS = settings.EMAIL_HOST_PASS
+
+    EMAIL_HOST_USER2 = settings.EMAIL_HOST_USER2
+    EMAIL_HOST_PASS2 = settings.EMAIL_HOST_PASS2
 
     products = Product.objects.all()
     query = None
@@ -59,6 +67,10 @@ def products(request):
         'search_term': query,
         'current_categories': categories,
         'current_sorting': current_sorting,
+        'EMAIL_HOST_USER': EMAIL_HOST_USER,
+        'EMAIL_HOST_PASS': EMAIL_HOST_PASS,
+        'EMAIL_HOST_USER2': EMAIL_HOST_USER2,
+        'EMAIL_HOST_PASS2': EMAIL_HOST_PASS2,
     }
 
     return render(request, 'products/products.html', context)
