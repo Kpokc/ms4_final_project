@@ -93,17 +93,17 @@ class OrderLineItem(models.Model):
         and update the order total, depending on item size
         """
 
-        constant = 1
-        if not self.size:
-            constant = self.product.price
-        if self.size == "small":
-            constant = self.product.price
-        if self.size == "medium":
-            constant = self.product.price + 12
-        if self.size == "large":
-            constant = self.product.price + 20
+        # constant = 1
+        # if not self.size:
+        #     constant = self.product.price
+        # if self.size == "small":
+        #     constant = self.product.price
+        # if self.size == "medium":
+        #     constant = self.product.price + 12
+        # if self.size == "large":
+        #     constant = self.product.price + 20
         
-        self.lineitem_total = constant + self.quantity
+        self.lineitem_total = self.product.price + self.quantity
         super().save(*args, **kwargs)
 
     def __str__(self):
