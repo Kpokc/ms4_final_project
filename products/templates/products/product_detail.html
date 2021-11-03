@@ -166,12 +166,12 @@
             $('#item-price').val((base_price).toFixed(2));
         }
         if (e.target.value === 'medium'){
-            $('.item-price').text('€'+(base_price*1.25).toFixed(2));
-            $('#item-price').val((base_price*1.25).toFixed(2));
+            $('.item-price').text('€'+(base_price + 12).toFixed(2));
+            $('#item-price').val((base_price + 12).toFixed(2));
         }
         if (e.target.value === 'large'){
-            $('.item-price').text('€'+(base_price*1.35).toFixed(2));
-            $('#item-price').val((base_price*1.35).toFixed(2));
+            $('.item-price').text('€'+(base_price + 20).toFixed(2));
+            $('#item-price').val((base_price + 20).toFixed(2));
         }
     }
 </script>

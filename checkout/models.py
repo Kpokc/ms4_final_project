@@ -103,7 +103,7 @@ class OrderLineItem(models.Model):
         if self.size == "large":
             constant = self.product.price + 20
         
-        self.lineitem_total = round(constant, 2) * self.quantity
+        self.lineitem_total = constant + self.quantity
         super().save(*args, **kwargs)
 
     def __str__(self):
