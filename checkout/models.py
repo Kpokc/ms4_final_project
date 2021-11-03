@@ -99,10 +99,10 @@ class OrderLineItem(models.Model):
         if self.size == "small":
             constant = self.product.price
         if self.size == "medium":
-            constant = float(self.product.price) * float(1.25)
+            constant = self.product.price + 12
         if self.size == "large":
-            constant = float(self.product.price) * float(1.35)
-
+            constant = self.product.price + 20
+        
         self.lineitem_total = round(constant, 2) * self.quantity
         super().save(*args, **kwargs)
 
