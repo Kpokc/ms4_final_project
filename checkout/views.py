@@ -1,25 +1,17 @@
-import json
-import os
-import smtplib
-from django.shortcuts import (
-    render, redirect, reverse, get_object_or_404, HttpResponse)
-from email.message import EmailMessage
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
-from django.template.loader import render_to_string
 
-
-import stripe
-
-
-from products.models import Product
-from profiles.models import UserProfile
-from bag.contexts import bag_contents
-from profiles.forms import UserProfileForm
 from .forms import OrderForm
 from .models import Order, OrderLineItem
+from products.models import Product
+from bag.contexts import bag_contents
+from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
 
+import stripe
+import json
 
 @require_POST
 def cache_checkout_data(request):
@@ -44,6 +36,7 @@ def checkout(request):
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
+        print(bag)
 
         form_data = {
             'full_name': request.POST['full_name'],
@@ -62,6 +55,7 @@ def checkout(request):
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
+            print(order)
             order.save()
             for item_id, item_data in bag.items():
                 try:
@@ -85,41 +79,33 @@ def checkout(request):
 
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your \
-                            bag wasn't found in our database. "
+                        "One of the products in your bag wasn't found in our database. "
                         "Please call us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse(
-                'checkout_success', args=[order.order_number])
-                )
+            return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
     else:
         bag = request.session.get('bag', {})
         if not bag:
-            messages.error(
-                request, "There's nothing in your bag at the moment"
-                )
+            messages.error(request, "There's nothing in your bag at the moment")
             return redirect(reverse('products'))
 
         current_bag = bag_contents(request)
         total = current_bag['grand_total']
         stripe_total = round(total * 100)
-        # print('__________________')
-        # print(stripe_total)
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
 
-        # Attempt to prefill the form with
-        # any info the user maintains in their profile
+        # Attempt to prefill the form with any info the user maintains in their profile
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
@@ -193,27 +179,25 @@ def checkout_success(request, order_number):
         'order': order,
     }
 
-    #send_confirmation_email(order)
-
     return render(request, template, context)
 
 
-def send_confirmation_email(order):
-    """ Send order confirmation email to customer """
+# def send_confirmation_email(order):
+#     """ Send order confirmation email to customer """
 
-    EMAIL_HOST_USER = settings.EMAIL_HOST_USER
-    EMAIL_HOST_PASS = settings.EMAIL_HOST_PASS
+#     EMAIL_HOST_USER = settings.EMAIL_HOST_USER
+#     EMAIL_HOST_PASS = settings.EMAIL_HOST_PASS
 
-    print(EMAIL_HOST_USER, EMAIL_HOST_PASS)
+#     print(EMAIL_HOST_USER, EMAIL_HOST_PASS)
 
-    msg = EmailMessage()
-    msg['Subject'] = 'Edible Bouquets Order confirmation'
-    msg['From'] = EMAIL_HOST_USER
-    msg['To'] = order.email
+#     msg = EmailMessage()
+#     msg['Subject'] = 'Edible Bouquets Order confirmation'
+#     msg['From'] = EMAIL_HOST_USER
+#     msg['To'] = order.email
 
-    msg_html = render_to_string('checkout/order_email.html', {'order': order})
-    msg.set_content(msg_html, subtype='html')
+#     msg_html = render_to_string('checkout/order_email.html', {'order': order})
+#     msg.set_content(msg_html, subtype='html')
 
-    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-        smtp.login(EMAIL_HOST_USER, EMAIL_HOST_PASS)
-        smtp.send_message(msg)
+#     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+#         smtp.login(EMAIL_HOST_USER, EMAIL_HOST_PASS)
+#         smtp.send_message(msg)
