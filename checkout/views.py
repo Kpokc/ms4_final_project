@@ -34,9 +34,11 @@ def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
+    bag = request.session.get('bag', {})
+    print(bag)
+
     if request.method == 'POST':
         bag = request.session.get('bag', {})
-        print(bag)
 
         form_data = {
             'full_name': request.POST['full_name'],
@@ -134,6 +136,7 @@ def checkout(request):
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
+        'bag': bag,
     }
 
     return render(request, template, context)

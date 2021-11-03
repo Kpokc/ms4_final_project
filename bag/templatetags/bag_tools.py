@@ -13,10 +13,9 @@ def calc_subtotal(price, quantity):
 def price_by_size(price, size):
 
     if size == "small":
-        return format(float(price * 1), ".2f")
+        return price
     if size == "medium":
-        price = float(price) * 1.25
-        return format(price, ".2f")
+        return price + 12
     if size == "large":
-        price = float(price) * 1.35
-        return format(price, ".2f")
+        return price + 20
+#return format(price, ".2f")
