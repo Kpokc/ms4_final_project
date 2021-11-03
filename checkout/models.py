@@ -104,7 +104,7 @@ class OrderLineItem(models.Model):
         #     constant = self.product.price + 20
         
         self.lineitem_total = self.product.price + self.quantity
-        super().save(*args, **kwargs)
+        super().save(self, *args, **kwargs)
 
     def __str__(self):
         return f'SKU {self.product.sku} on order {self.order.order_number}'

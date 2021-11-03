@@ -110,8 +110,8 @@ def checkout(request):
         current_bag = bag_contents(request)
         total = current_bag['grand_total']
         stripe_total = round(total * 100)
-        print('__________________')
-        print(stripe_total)
+        # print('__________________')
+        # print(stripe_total)
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,
@@ -198,22 +198,22 @@ def checkout_success(request, order_number):
     return render(request, template, context)
 
 
-# def send_confirmation_email(order):
-#     """ Send order confirmation email to customer """
+def send_confirmation_email(order):
+    """ Send order confirmation email to customer """
 
-#     EMAIL_HOST_USER = settings.EMAIL_HOST_USER
-#     EMAIL_HOST_PASS = settings.EMAIL_HOST_PASS
+    EMAIL_HOST_USER = settings.EMAIL_HOST_USER
+    EMAIL_HOST_PASS = settings.EMAIL_HOST_PASS
 
-#     print(EMAIL_HOST_USER, EMAIL_HOST_PASS)
+    print(EMAIL_HOST_USER, EMAIL_HOST_PASS)
 
-#     msg = EmailMessage()
-#     msg['Subject'] = 'Edible Bouquets Order confirmation'
-#     msg['From'] = EMAIL_HOST_USER
-#     msg['To'] = order.email
+    msg = EmailMessage()
+    msg['Subject'] = 'Edible Bouquets Order confirmation'
+    msg['From'] = EMAIL_HOST_USER
+    msg['To'] = order.email
 
-#     msg_html = render_to_string('checkout/order_email.html', {'order': order})
-#     msg.set_content(msg_html, subtype='html')
+    msg_html = render_to_string('checkout/order_email.html', {'order': order})
+    msg.set_content(msg_html, subtype='html')
 
-#     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-#         smtp.login(EMAIL_HOST_USER, EMAIL_HOST_PASS)
-#         smtp.send_message(msg)
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+        smtp.login(EMAIL_HOST_USER, EMAIL_HOST_PASS)
+        smtp.send_message(msg)
