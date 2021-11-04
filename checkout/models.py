@@ -32,8 +32,8 @@ class Order(models.Model):
     street_address2 = models.CharField(max_length=254, null=True, blank=True)  # 80
     county = models.CharField(max_length=254, null=True, blank=True)  # 80
 
-    # date = models.DateTimeField(auto_now_add=True)
-    date = models.SlugField(default=datetime.now, blank=True)
+    date = models.DateTimeField(auto_now_add=True)
+    #date = models.SlugField(default=datetime.now, blank=True)
 
     delivery_cost = models.SlugField(null=False, default=0)
     # delivery_cost = models.DecimalField(max_digits=6, decimal_places=4, null=False, default=0)
@@ -44,12 +44,11 @@ class Order(models.Model):
     grand_total = models.SlugField(null=False, default=0)
     # grand_total = models.DecimalField(max_digits=10, decimal_places=4, null=False, default=0)
 
-    original_bag = models.SlugField(null=False, default=0)
-    # original_bag = models.TextField(null=False, blank=False, default='')
+    #original_bag = models.SlugField(null=False, default=0)
+    original_bag = models.TextField(null=False, blank=False, default='')
 
-    stripe_pid = models.SlugField(null=False, default=0)
-    
-    # stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
+    #stripe_pid = models.SlugField(null=False, default=0)
+    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
 
     def _generate_order_number(self):
         """
@@ -94,10 +93,10 @@ class Order(models.Model):
 class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
-    size = models.CharField(max_length=254, null=True, blank=True)
+    size = models.CharField(max_length=254, null=True, blank=True)  # 8
     quantity = models.IntegerField(null=False, blank=False, default=0)
-    lineitem_total = models.SlugField(null=False, default=0)
-    # lineitem_total = models.DecimalField(max_digits=6, decimal_places=4, null=False, blank=False, editable=False)
+    # lineitem_total = models.SlugField(null=False, default=0)
+    lineitem_total = models.DecimalField(max_digits=6, decimal_places=4, null=False, blank=False, editable=False)
 
     def save(self, *args, **kwargs):
         """
