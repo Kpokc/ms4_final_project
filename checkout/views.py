@@ -35,10 +35,13 @@ def checkout(request):
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     bag = request.session.get('bag', {})
-    print(bag)
+    price = None
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
+
+        print(bag)
+        print('----------------')
 
         form_data = {
             'full_name': request.POST['full_name'],
@@ -57,7 +60,6 @@ def checkout(request):
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
-            print(order)
             order.save()
             for item_id, item_data in bag.items():
                 try:
@@ -99,6 +101,9 @@ def checkout(request):
             return redirect(reverse('products'))
 
         current_bag = bag_contents(request)
+        print('current_bag')
+        print(current_bag)
+        print('---------------')
         total = current_bag['grand_total']
         stripe_total = round(total * 100)
         stripe.api_key = stripe_secret_key
@@ -106,6 +111,10 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
+        print('intent')
+        print(intent)
+        print('---------------')
+
 
         # Attempt to prefill the form with any info the user maintains in their profile
         if request.user.is_authenticated:
@@ -147,6 +156,8 @@ def checkout_success(request, order_number):
     Handle successful checkouts
     """
     save_info = request.session.get('save_info')
+    print(save_info)
+    print('---------------')
     order = get_object_or_404(Order, order_number=order_number)
 
     if request.user.is_authenticated:

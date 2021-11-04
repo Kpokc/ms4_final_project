@@ -18,4 +18,4 @@ def price_by_size(price, size):
         return price + 12
     if size == "large":
         return price + 20
-#return format(price, ".2f")
+

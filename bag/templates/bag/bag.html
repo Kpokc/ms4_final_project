@@ -23,6 +23,7 @@
 
         <div class="row">
             {{bag_items}}
+            <!-- Display section on large screens -->
             <div class="col-8 m-auto bag-items">
                 {% if bag_items %}
 
@@ -47,7 +48,7 @@
                                         {% include "bag/product-info.html" %}
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">${{ item.product.price | price_by_size:item.size }}</p>
+                                        <p class="my-0">€{{ item.product.price | price_by_size:item.size }}</p>
                                     </td>
                                     <td class="py-3 w-25">
                                         {% include "bag/quantity-form.html" %}
@@ -55,7 +56,7 @@
                                     <td class="py-3">
                                         <!-- Get total of current product by size -->
                                         {% with size_price=item.product.price|price_by_size:item.size %}
-                                        <p class="my-0">${{ size_price|calc_subtotal:item.quantity }}</p>
+                                        <p class="my-0">€{{ size_price|calc_subtotal:item.quantity }}</p>
                                         {% endwith %}
                                     </td>
                                 </tr>
@@ -73,6 +74,7 @@
                     </a>
                 {% endif %}
             </div>
+            <!-- Display section on small screens -->
             <div class="col-4 d-none d-lg-block">
                 <div class="total-bag-sum position-fixed bg-light card-shadow p-2 border">
                     <tr>
@@ -115,11 +117,11 @@
                                 {% include "bag/product-info.html" %}
                             </div>
                             <div class="col-12 col-sm-6 order-sm-last">
-                                <p class="my-0">Price Each: ${{ item.product.price | price_by_size:item.size }}</p>
+                                <p class="my-0">Price Each: €{{ item.product.price | price_by_size:item.size }}</p>
                                 <p><strong>Subtotal: </strong>
                                     <!-- Get total of current product by size -->
                                     {% with size_price=item.product.price|price_by_size:item.size %}
-                                    <p class="my-0">${{ size_price|calc_subtotal:item.quantity }}</p>
+                                    <p class="my-0">€{{ size_price|calc_subtotal:item.quantity }}</p>
                                     {% endwith %}
                                 </p>
                             </div>
