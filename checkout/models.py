@@ -58,7 +58,7 @@ class Order(models.Model):
 
         getcontext().prec = 4
 
-        self.grand_total = Decimal(self.grand_total)
+        self.grand_total = 777.77 # Decimal(self.grand_total)
         print('Decimal(self.grand_total)')
         print(self.grand_total)
         print('-----------------------')
@@ -105,7 +105,7 @@ class OrderLineItem(models.Model):
         self.lineitem_total = constant * self.quantity
 
         getcontext().prec = 4
-        self.lineitem_total = Decimal(self.lineitem_total)
+        self.lineitem_total = 555.55 # Decimal(self.lineitem_total)
         print('self.lineitem_total')
         print(self.lineitem_total)
         print('-----------------------')
