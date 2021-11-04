@@ -1,6 +1,8 @@
 from django.db import models
+from decimal import *
 
 # Create your models here.
+
 import uuid
 
 from django.db import models
@@ -50,6 +52,14 @@ class Order(models.Model):
         else:
             self.delivery_cost = 0
         self.grand_total = self.order_total + self.delivery_cost
+
+        getcontext().prec = 2
+
+        self.grand_total = Decimal(self.grand_total)
+        print('Decimal(self.grand_total)')
+        print(Decimal(self.grand_total))
+        print('-----------------------')
+        
         self.save()
 
     def save(self, *args, **kwargs):
