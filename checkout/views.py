@@ -35,7 +35,6 @@ def checkout(request):
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     bag = request.session.get('bag', {})
-    price = None
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})

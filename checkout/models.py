@@ -1,5 +1,6 @@
 from django.db import models
 from decimal import *
+from datetime import datetime  
 
 # Create your models here.
 
@@ -28,7 +29,10 @@ class Order(models.Model):
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
-    date = models.DateTimeField(auto_now_add=True)
+
+    # date = models.DateTimeField(auto_now_add=True)
+    date = models.SlugField(default=datetime.now, blank=True)
+
     delivery_cost = models.SlugField(null=False, default=0)
     # delivery_cost = models.DecimalField(max_digits=6, decimal_places=4, null=False, default=0)
     order_total = models.SlugField(null=False, default=0)
@@ -58,7 +62,7 @@ class Order(models.Model):
 
         getcontext().prec = 4
 
-        self.grand_total = 777.77 # Decimal(self.grand_total)
+        self.grand_total = 777 # Decimal(self.grand_total)
         print('Decimal(self.grand_total)')
         print(self.grand_total)
         print('-----------------------')
@@ -105,7 +109,7 @@ class OrderLineItem(models.Model):
         self.lineitem_total = constant * self.quantity
 
         getcontext().prec = 4
-        self.lineitem_total = 555.55 # Decimal(self.lineitem_total)
+        self.lineitem_total = 555 # Decimal(self.lineitem_total)
         print('self.lineitem_total')
         print(self.lineitem_total)
         print('-----------------------')
