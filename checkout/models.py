@@ -24,7 +24,7 @@ class Order(models.Model):
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=254, null=False, blank=False)  # 20
 
-    country = models.CharField(max_length=2, default='IE', null=False, blank=False)  # 80
+    country = models.CharField(max_length=254, default='IE', null=False, blank=False)  # 80
     #country = CountryField(blank_label='(Country *)', null=False, blank=False)
     
     postcode = models.CharField(max_length=254, null=True, blank=True)  # 20
