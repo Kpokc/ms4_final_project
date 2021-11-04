@@ -61,7 +61,10 @@ class Order(models.Model):
         Update grand total each time a line item is added,
         accounting for delivery costs.
         """
-        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        self.order_total = float(self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0)
+        print('self.order_total')
+        print(self.order_total)
+        print('-----------------------')
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
             self.delivery_cost = settings.STANDARD_DELIVERY_PERCENTAGE
         else:
@@ -70,7 +73,7 @@ class Order(models.Model):
 
         getcontext().prec = 4
 
-        self.grand_total = Decimal(self.grand_total)
+        self.grand_total = float(self.grand_total) #Decimal(self.grand_total)
         print('Decimal(self.grand_total)')
         print(self.grand_total)
         print('-----------------------')
@@ -117,7 +120,7 @@ class OrderLineItem(models.Model):
         self.lineitem_total = constant * self.quantity
 
         getcontext().prec = 4
-        self.lineitem_total = Decimal(self.lineitem_total)
+        self.lineitem_total = float(self.lineitem_total)
         print('self.lineitem_total')
         print(self.lineitem_total)
         print('-----------------------')
