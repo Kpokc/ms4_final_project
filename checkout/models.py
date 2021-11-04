@@ -94,7 +94,7 @@ class Order(models.Model):
 class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
-    size = models.CharField(max_length=2, null=True, blank=True)
+    size = models.CharField(max_length=254, null=True, blank=True)
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.SlugField(null=False, default=0)
     # lineitem_total = models.DecimalField(max_digits=6, decimal_places=4, null=False, blank=False, editable=False)
