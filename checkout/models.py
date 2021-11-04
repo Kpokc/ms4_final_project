@@ -32,17 +32,17 @@ class Order(models.Model):
     street_address2 = models.CharField(max_length=254, null=True, blank=True)  # 80
     county = models.CharField(max_length=254, null=True, blank=True)  # 80
 
-    date = models.DateTimeField(auto_now_add=True)
-    #date = models.SlugField(default=datetime.now, blank=True)
+    #date = models.DateTimeField(auto_now_add=True)
+    date = models.SlugField(default=datetime.now, blank=True)
 
-    delivery_cost = models.SlugField(null=False, default=0)
-    # delivery_cost = models.DecimalField(max_digits=6, decimal_places=4, null=False, default=0)
+    #delivery_cost = models.SlugField(null=False, default=0)
+    delivery_cost = models.DecimalField(max_digits=6, decimal_places=4, null=False, default=0)
 
-    order_total = models.SlugField(null=False, default=0)
-    # order_total = models.DecimalField(max_digits=10, decimal_places=4, null=False, default=0)
+    #order_total = models.SlugField(null=False, default=0)
+    order_total = models.DecimalField(max_digits=10, decimal_places=4, null=False, default=0)
 
-    grand_total = models.SlugField(null=False, default=0)
-    # grand_total = models.DecimalField(max_digits=10, decimal_places=4, null=False, default=0)
+    #grand_total = models.SlugField(null=False, default=0)
+    grand_total = models.DecimalField(max_digits=10, decimal_places=4, null=False, default=0)
 
     #original_bag = models.SlugField(null=False, default=0)
     original_bag = models.TextField(null=False, blank=False, default='')
@@ -70,7 +70,7 @@ class Order(models.Model):
 
         getcontext().prec = 4
 
-        self.grand_total = 777 # Decimal(self.grand_total)
+        self.grand_total = Decimal(self.grand_total)
         print('Decimal(self.grand_total)')
         print(self.grand_total)
         print('-----------------------')
@@ -117,7 +117,7 @@ class OrderLineItem(models.Model):
         self.lineitem_total = constant * self.quantity
 
         getcontext().prec = 4
-        self.lineitem_total = 555 # Decimal(self.lineitem_total)
+        self.lineitem_total = Decimal(self.lineitem_total)
         print('self.lineitem_total')
         print(self.lineitem_total)
         print('-----------------------')
