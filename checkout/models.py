@@ -53,11 +53,11 @@ class Order(models.Model):
             self.delivery_cost = 0
         self.grand_total = self.order_total + self.delivery_cost
 
-        getcontext().prec = 2
+        getcontext().prec = 4
 
         self.grand_total = Decimal(self.grand_total)
         print('Decimal(self.grand_total)')
-        print(Decimal(self.grand_total))
+        print(self.grand_total)
         print('-----------------------')
         
         self.save()
@@ -99,8 +99,13 @@ class OrderLineItem(models.Model):
             constant = self.product.price + 20
         
         self.lineitem_total = constant * self.quantity
+
+        getcontext().prec = 4
+        self.lineitem_total = Decimal(self.lineitem_total)
+        print('self.lineitem_total')
         print(self.lineitem_total)
-        print('____________')
+        print('-----------------------')
+
         super().save(*args, **kwargs)
 
     def __str__(self):
