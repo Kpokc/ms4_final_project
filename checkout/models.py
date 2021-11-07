@@ -1,6 +1,7 @@
 from django.db import models
 from decimal import *
-from datetime import datetime  
+from datetime import datetime 
+from decimal import *
 
 # Create your models here.
 
@@ -63,9 +64,6 @@ class Order(models.Model):
         accounting for delivery costs.
         """
         self.order_total = float(self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0)
-        print('self.order_total')
-        print(self.order_total)
-        print('-----------------------')
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
             self.delivery_cost = settings.STANDARD_DELIVERY_PERCENTAGE
         else:
@@ -75,10 +73,6 @@ class Order(models.Model):
         getcontext().prec = 4
 
         self.grand_total = float(self.grand_total) #Decimal(self.grand_total)
-        print('Decimal(self.grand_total)')
-        print(self.grand_total)
-        print('-----------------------')
-        print(self.country)
         
         self.save()
 
@@ -100,15 +94,14 @@ class OrderLineItem(models.Model):
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
     size = models.CharField(max_length=254, null=True, blank=True)  # 8
     quantity = models.IntegerField(null=False, blank=False, default=0)
-    # lineitem_total = models.SlugField(null=False, default=0)
-    lineitem_total = models.DecimalField(max_digits=6, decimal_places=4, null=False, blank=False, editable=False)
+    lineitem_total = models.DecimalField(max_digits=20, decimal_places=2, null=False, blank=False, editable=False)
 
     def save(self, *args, **kwargs):
         """
         Override the original save method to set the lineitem total
         and update the order total, depending on item size
         """
-
+        getcontext().prec = 4
         constant = 1
         if not self.size:
             constant = self.product.price
@@ -119,13 +112,7 @@ class OrderLineItem(models.Model):
         if self.size == "large":
             constant = self.product.price + 20
         
-        self.lineitem_total = constant * self.quantity
-
-        getcontext().prec = 4
-        self.lineitem_total = float(self.lineitem_total)
-        print('self.lineitem_total')
-        print(self.lineitem_total)
-        print('-----------------------')
+        self.lineitem_total = Decimal(constant) * Decimal(self.quantity)
 
         super().save(*args, **kwargs)
 
