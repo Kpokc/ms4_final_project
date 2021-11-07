@@ -96,25 +96,25 @@ class OrderLineItem(models.Model):
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(max_digits=20, decimal_places=2, null=False, blank=False, editable=False)
 
-    def save(self, *args, **kwargs):
-        """
-        Override the original save method to set the lineitem total
-        and update the order total, depending on item size
-        """
-        getcontext().prec = 4
-        constant = 1
-        if not self.size:
-            constant = self.product.price
-        if self.size  == "small":
-            constant = self.product.price
-        if self.size == "medium":
-            constant = self.product.price + 12
-        if self.size == "large":
-            constant = self.product.price + 20
+    # def save(self, *args, **kwargs):
+    #     """
+    #     Override the original save method to set the lineitem total
+    #     and update the order total, depending on item size
+    #     """
+    #     getcontext().prec = 4
+    #     constant = 1
+    #     if not self.size:
+    #         constant = self.product.price
+    #     if self.size  == "small":
+    #         constant = self.product.price
+    #     if self.size == "medium":
+    #         constant = self.product.price + 12
+    #     if self.size == "large":
+    #         constant = self.product.price + 20
         
-        self.lineitem_total = Decimal(constant) * Decimal(self.quantity)
+    #     self.lineitem_total = Decimal(constant) * Decimal(self.quantity)
 
-        super().save(*args, **kwargs)
+    #     super().save(*args, **kwargs)
 
-    def __str__(self):
-        return f'SKU {self.product.sku} on order {self.order.order_number}'
+    # def __str__(self):
+    #     return f'SKU {self.product.sku} on order {self.order.order_number}'

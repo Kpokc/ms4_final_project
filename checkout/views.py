@@ -77,6 +77,7 @@ def checkout(request):
                                 product=product,
                                 quantity=quantity,
                                 size=size,
+                                lineitem_total=20.00,
                             )
                             order_line_item.save()
 
