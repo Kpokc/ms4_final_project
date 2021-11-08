@@ -17,12 +17,6 @@ from .forms import ProductForm
 def products(request):
     """ A view to show all products, including sorting and search queries """
 
-    EMAIL_HOST_USER = settings.EMAIL_HOST_USER
-    EMAIL_HOST_PASS = settings.EMAIL_HOST_PASS
-
-    EMAIL_HOST_USER2 = settings.EMAIL_HOST_USER2
-    EMAIL_HOST_PASS2 = settings.EMAIL_HOST_PASS2
-
     products = Product.objects.all()
     query = None
     categories = None
@@ -67,10 +61,6 @@ def products(request):
         'search_term': query,
         'current_categories': categories,
         'current_sorting': current_sorting,
-        'EMAIL_HOST_USER': EMAIL_HOST_USER,
-        'EMAIL_HOST_PASS': EMAIL_HOST_PASS,
-        'EMAIL_HOST_USER2': EMAIL_HOST_USER2,
-        'EMAIL_HOST_PASS2': EMAIL_HOST_PASS2,
     }
 
     return render(request, 'products/products.html', context)
