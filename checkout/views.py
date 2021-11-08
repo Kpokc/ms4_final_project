@@ -39,9 +39,6 @@ def checkout(request):
     if request.method == 'POST':
         bag = request.session.get('bag', {})
 
-        print(bag)
-        print('----------------')
-
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -74,10 +71,10 @@ def checkout(request):
                         for size, quantity in item_data['items_by_size'].items():
                             order_line_item = OrderLineItem(
                                 order=order,
-                                product=product,
-                                quantity=quantity,
-                                size=size,
-                                lineitem_total=20.00,
+                                product=10,  # product,
+                                quantity=101,  # quantity,
+                                size='SPECIAL',  # size,
+                                lineitem_total=20.00,  # can be removed
                             )
                             order_line_item.save()
 
@@ -101,9 +98,7 @@ def checkout(request):
             return redirect(reverse('products'))
 
         current_bag = bag_contents(request)
-        print('current_bag')
-        print(current_bag)
-        print('---------------')
+
         total = current_bag['grand_total']
         stripe_total = round(total * 100)
         stripe.api_key = stripe_secret_key
@@ -111,9 +106,6 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-        print('intent')
-        print(intent)
-        print('---------------')
 
 
         # Attempt to prefill the form with any info the user maintains in their profile
