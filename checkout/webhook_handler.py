@@ -134,8 +134,9 @@ class StripeWH_Handler:
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,
-                                quantity=quantity,
-                                size=size,
+                                quantity=101,  # quantity,
+                                size='SPECIAL',  # size,
+                                lineitem_total=20,  # can be removed
                             )
                             order_line_item.save()
             except Exception as e:

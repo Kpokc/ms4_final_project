@@ -60,6 +60,7 @@ def checkout(request):
             for item_id, item_data in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
+                    print(product)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,
@@ -71,10 +72,10 @@ def checkout(request):
                         for size, quantity in item_data['items_by_size'].items():
                             order_line_item = OrderLineItem(
                                 order=order,
-                                product=10,  # product,
+                                product=product,
                                 quantity=101,  # quantity,
                                 size='SPECIAL',  # size,
-                                lineitem_total=20.00,  # can be removed
+                                lineitem_total=20,  # can be removed
                             )
                             order_line_item.save()
 
