@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect, reverse
 
 
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASS = os.environ.get('EMAIL_HOST_PASS')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
 
 
 def contact(request):
@@ -34,7 +34,7 @@ def contact(request):
         msg.set_content(msg_html, subtype='html')
 
         with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-            smtp.login(EMAIL_HOST_USER, EMAIL_HOST_PASS)
+            smtp.login(EMAIL_HOST_USER, EMAIL_HOST_PASSWORD)
             smtp.send_message(msg)
 
     return render(request, 'contact/contact.html')

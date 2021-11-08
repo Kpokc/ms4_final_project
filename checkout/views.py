@@ -205,7 +205,7 @@ def send_confirmation_email(order):
     """ Send order confirmation email to customer """
 
     EMAIL_HOST_USER = settings.EMAIL_HOST_USER
-    EMAIL_HOST_PASS = settings.EMAIL_HOST_PASS
+    EMAIL_HOST_PASSWORD = settings.EMAIL_HOST_PASSWORD
 
     msg = EmailMessage()
     msg['Subject'] = 'Edible Bouquets Order confirmation'
@@ -216,5 +216,5 @@ def send_confirmation_email(order):
     msg.set_content(msg_html, subtype='html')
 
     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-        smtp.login(EMAIL_HOST_USER, EMAIL_HOST_PASS)
+        smtp.login(EMAIL_HOST_USER, EMAIL_HOST_PASSWORD)
         smtp.send_message(msg)
