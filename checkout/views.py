@@ -48,7 +48,7 @@ def checkout(request):
             'town_or_city': request.POST['town_or_city'],
             'street_address1': request.POST['street_address1'],
             'street_address2': request.POST['street_address2'],
-            'county': 'IE',  #request.POST['county'],
+            'county': request.POST['county'],
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
@@ -71,10 +71,10 @@ def checkout(request):
                     else:
                         for size, quantity in item_data['items_by_size'].items():
                             order_line_item = OrderLineItem(
-                                #order=order,
+                                order=order,
                                 product=product,
-                                quantity=101,  # quantity,
-                                size='SPECIAL',  # size,
+                                #quantity=101,  # quantity,
+                                #size='SPECIAL',  # size,
                                 lineitem_total=20,  # can be removed
                             )
                             order_line_item.save()
@@ -122,7 +122,7 @@ def checkout(request):
                     'town_or_city': profile.default_town_or_city,
                     'street_address1': profile.default_street_address1,
                     'street_address2': profile.default_street_address2,
-                    'county': 'IE',  #profile.default_county,
+                    'county': profile.default_county,
                 })
             except UserProfile.DoesNotExist:
                 order_form = OrderForm()
