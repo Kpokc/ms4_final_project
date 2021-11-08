@@ -8,6 +8,7 @@ from django.template.loader import render_to_string
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
+from email.message import EmailMessage
 
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
