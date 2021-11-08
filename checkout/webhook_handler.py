@@ -136,7 +136,6 @@ class StripeWH_Handler:
                                 product=product,
                                 quantity=quantity,
                                 size=size,
-                                #lineitem_total=20,  # can be removed
                             )
                             order_line_item.save()
             except Exception as e:

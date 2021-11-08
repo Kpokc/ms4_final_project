@@ -12,10 +12,9 @@ def calc_subtotal(price, quantity):
 @register.filter(name='price_by_size')
 def price_by_size(price, size):
 
-    if size == "small":
+    if (size == "small") or (size == "SM"):
         return price
-    if size == "medium":
+    if (size == "medium") or (size == "MD"):
         return price + 12
-    if size == "large":
+    if (size == "large") or (size == "LG"):
         return price + 20
-

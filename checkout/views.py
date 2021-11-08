@@ -1,17 +1,19 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+import json
+import stripe
+from django.shortcuts import (
+    render, redirect, reverse, get_object_or_404, HttpResponse
+    )
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 
-from .forms import OrderForm
-from .models import Order, OrderLineItem
-from products.models import Product
-from bag.contexts import bag_contents
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
+from bag.contexts import bag_contents
+from products.models import Product
+from .forms import OrderForm
+from .models import Order, OrderLineItem
 
-import stripe
-import json
 
 @require_POST
 def cache_checkout_data(request):
@@ -31,6 +33,7 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
+    """ Checkout function """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -43,7 +46,7 @@ def checkout(request):
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
             'phone_number': request.POST['phone_number'],
-            'country': 'IE',  # request.POST['country'],
+            'country': request.POST['country'],
             'postcode': request.POST['postcode'],
             'town_or_city': request.POST['town_or_city'],
             'street_address1': request.POST['street_address1'],
@@ -59,8 +62,8 @@ def checkout(request):
             order.save()
             for item_id, item_data in bag.items():
                 try:
+                    # Items without size
                     product = Product.objects.get(id=item_id)
-                    print(product)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,
@@ -69,19 +72,20 @@ def checkout(request):
                         )
                         order_line_item.save()
                     else:
+                        # Items with size
                         for size, quantity in item_data['items_by_size'].items():
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,
                                 quantity=quantity,
                                 size=size,
-                                #lineitem_total=20,  # can be removed
                             )
                             order_line_item.save()
 
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your bag wasn't found in our database. "
+                        "One of the products in your bag\
+                             wasn't found in our database. "
                         "Please call us for assistance!")
                     )
                     order.delete()
@@ -107,7 +111,6 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-
 
         # Attempt to prefill the form with any info the user maintains in their profile
         if request.user.is_authenticated:
@@ -149,8 +152,6 @@ def checkout_success(request, order_number):
     Handle successful checkouts
     """
     save_info = request.session.get('save_info')
-    print(save_info)
-    print('---------------')
     order = get_object_or_404(Order, order_number=order_number)
 
     if request.user.is_authenticated:
@@ -194,8 +195,6 @@ def checkout_success(request, order_number):
 
 #     EMAIL_HOST_USER = settings.EMAIL_HOST_USER
 #     EMAIL_HOST_PASS = settings.EMAIL_HOST_PASS
-
-#     print(EMAIL_HOST_USER, EMAIL_HOST_PASS)
 
 #     msg = EmailMessage()
 #     msg['Subject'] = 'Edible Bouquets Order confirmation'

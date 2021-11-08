@@ -12,6 +12,7 @@ def bag_contents(request):
     bag = request.session.get('bag', {})
 
     for item_id, item_data in bag.items():
+        # Section for products without size line
         if isinstance(item_data, int):
             product = get_object_or_404(Product, pk=item_id)
             total += item_data * product.price
@@ -23,13 +24,15 @@ def bag_contents(request):
                 'total': total,
             })
         else:
+            # Section for products with the size line
             product = get_object_or_404(Product, pk=item_id)
             for size, quantity in item_data['items_by_size'].items():
-                if size == "small":
+                # Change size to two chars and count total
+                if (size == "small") or (size == "SM"):
                     total += quantity * product.price
-                if size == "medium":
+                if (size == "medium") or (size == "MD"):
                     total += quantity * (product.price + 12)
-                if size == "large":
+                if (size == "large") or (size == "LG"):
                     total += quantity * (product.price + 20)
                 product_count += quantity
                 bag_items.append({
@@ -40,12 +43,10 @@ def bag_contents(request):
                     'total': total,
                 })
 
+    # Count deliery free delivery delta
     if (total > 0) and (total < settings.FREE_DELIVERY_THRESHOLD):
-        delivery = settings.STANDARD_DELIVERY_PERCENTAGE #total * float(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
+        delivery = settings.STANDARD_DELIVERY_PERCENTAGE
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
-        # if free_delivery_delta < 0:
-        #     delivery = 0
-        #     free_delivery_delta = 0
     else:
         delivery = 0
         free_delivery_delta = 0
