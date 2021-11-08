@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div style="background-color:#eee;padding:10px20px;text-align:center;">
+        <h2 style="font-family:Georgia, 'Times New Roman',Times, serif;color#454349;">Edible Bouquets</h2>
+    </div>
+    <div style="padding:20px 0px">
+        <div style="height:500px;width:400px;margin: 0 auto;">
+            <div style="text-align:center;">
+                <h3>Your Query Received.</h3>
+                <p>We appreciate you contacting us {{context.name}}.
+                    <br> One of our colleagues will get back in touchwith you soon! 
+                    <br> Have a great day!</p>
+                <hr>
+                <h3>{{context.name}} Subject:</h3>
+                <p>{{context.subject}}</p>
+                <h3>{{context.name}} Query:</h3>
+                <p>{{context.message}}</p>
+                <h3>{{context.name}} Contact details:</h3>
+                <p>{{context.email}}</p>
+                <hr>
+                <a href="https://final-ms4-app.herokuapp.com/" style="margin-top: 125px;">
+                    <strong>Edible Bouquets</strong>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -30,11 +30,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY', ' ')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
-# if 'DEVELOPMENT' in os.environ:
-#     DEBUG = False
-# else:
-#     DEBUG = True
-
 ALLOWED_HOSTS = ['final-ms4-app.herokuapp.com', 'localhost']
 
 
@@ -217,18 +212,6 @@ STRIPE_CURRENCY = 'EUR'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
-
-
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_USE_TLS = True
-# EMAIL_PORT = 587
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
-# EMAIL_HOST_PASS = os.getenv('EMAIL_HOST_PASS')
-# DEFAULT_FROM_EMAIL = os.getenv('EMAIL_HOST_USER')
-
-# EMAIL_HOST_USER2 = os.environ.get('EMAIL_HOST_USER')
-# EMAIL_HOST_PASS2 = os.environ.get('EMAIL_HOST_PASS')
 
 
 if 'DEVELOPMENT' in os.environ:
