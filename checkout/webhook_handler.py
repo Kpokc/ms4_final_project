@@ -128,7 +128,7 @@ class StripeWH_Handler:
                             product=product,
                             quantity=item_data,
                         )
-                        order_line_item.save()
+                        #order_line_item.save()
                     else:
                         for size, quantity in item_data['items_by_size'].items():
                             order_line_item = OrderLineItem(
@@ -138,7 +138,7 @@ class StripeWH_Handler:
                                 size='SPECIAL',  # size,
                                 lineitem_total=20,  # can be removed
                             )
-                            order_line_item.save()
+                            #order_line_item.save()
             except Exception as e:
                 if order:
                     order.delete()
