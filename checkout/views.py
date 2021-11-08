@@ -74,7 +74,7 @@ def checkout(request):
                                 order=order,
                                 product=product,
                                 quantity=101,  # quantity,
-                                #size='SPECIAL',  # size,
+                                size='SM',  # size,
                                 lineitem_total=20,  # can be removed
                             )
                             order_line_item.save()
