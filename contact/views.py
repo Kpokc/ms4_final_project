@@ -29,7 +29,8 @@ def contact(request):
             'email': email,
         }
 
-        msg_html = render_to_string('contact/contact_email.html', { 'context':context})
+        msg_html = render_to_string(
+            'contact/contact_email.html', {'context': context})
 
         msg.set_content(msg_html, subtype='html')
 
