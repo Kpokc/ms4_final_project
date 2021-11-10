@@ -633,4 +633,8 @@ p.carusel-text{
         top: 120px;
         width: 290px;
     }
+
+    .text-uppercase {
+        font-size: 13px;
+    }
 }
