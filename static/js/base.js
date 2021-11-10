@@ -1,24 +1,24 @@
 // show madal and write event into cookies
-// $(window).on('load', function () {
-//     if (document.cookie.indexOf('modal_shown=') >= 0) {
-//         //do nothing if modal_shown cookie is present
-//     } else {
-//         var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'), {
-//             keyboard: false
-//         })
-//         myModal.toggle();
-//         var now = new Date();
-//         var time = now.getTime();
-//         // Set cookie to expire in one hour
-//         var expireTime = time + 3600000;
-//         now.setTime(expireTime);
-//         document.cookie = 'modal_shown=ok;expires=' + now.toUTCString() + ';path=/';
-//     }
+$(window).on('load', function () {
+    if (document.cookie.indexOf('modal_shown=') >= 0) {
+        //do nothing if modal_shown cookie is present
+    } else {
+        var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'), {
+            keyboard: false
+        })
+        myModal.toggle();
+        var now = new Date();
+        var time = now.getTime();
+        // Set cookie to expire in one hour
+        var expireTime = time + 3600000;
+        now.setTime(expireTime);
+        document.cookie = 'modal_shown=ok;expires=' + now.toUTCString() + ';path=/';
+    }
 
-//     $(".close").click(function () {
-//         myModal.toggle();
-//     });
-// });
+    $(".close").click(function () {
+        myModal.toggle();
+    });
+});
 
 // On scroll dow / up adjust top navigation bar
 $(window).scroll(function () {
