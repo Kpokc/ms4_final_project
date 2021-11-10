@@ -1,5 +1,6 @@
 # Edible Bouquets
-![User Stories](/media/screens.PNG){:target="_blank" rel="noopener"}
+<h1 align="center"><img src="https://github.com/Kpokc/ms4_final_project/blob/main/media/screens.png"/></h1>
+
 [View the live project here](https://final-ms4-app.herokuapp.com/)
 
 ## Application for people, who is looking for special and outstanding gifts.
