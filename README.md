@@ -1,5 +1,5 @@
 # Edible Bouquets
-[View the live project here](https://final-ms4-app.herokuapp.com/)
+[View the live project here](https://final-ms4-app.herokuapp.com/){:target="_blank" rel="noopener"}
 
 ## Application for people, who is looking for special and outstanding gifts.
 
@@ -36,14 +36,14 @@ Thus, the Application will help to:
 -	Track the history of purchased products
 
 # User Stories  
-[User Stories](/media/userstories.png)
+![User Stories](/media/userstories.PNG){:target="_blank" rel="noopener"}
 
 # Wireframe
 Initial wireframes for the project are shown below, representing the desktop, tablet, and mobile views.
-[Wireframe](/wireframe/)
+[Wireframe](/wireframe/){:target="_blank" rel="noopener"}
 
 # Database Model
-[Database](/media/database.pdf)
+[Database](/media/database.pdf){:target="_blank" rel="noopener"}
 
 # UX
 The purpose of the project is to design a responsive website for all kinds of devices (mostly for desktops and smartphones) for making navigation fast and efficient. User can easily define their actions and navigate easily.  
