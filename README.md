@@ -38,14 +38,14 @@ Thus, the Application will help to:
 -	Track the history of purchased products
 
 # User Stories  
-![User Stories](/media/userstories.PNG){:target="_blank" rel="noopener"}
+![User Stories](/media/userstories.PNG)
 
 # Wireframe
 Initial wireframes for the project are shown below, representing the desktop, tablet, and mobile views.
 [Wireframe](/wireframe/)
 
 # Database Model
-![Database](/media/database.pdf)
+![Database](/media/database.PNG)
 
 # UX
 The purpose of the project is to design a responsive website for all kinds of devices (mostly for desktops and smartphones) for making navigation fast and efficient. User can easily define their actions and navigate easily.  
@@ -286,6 +286,9 @@ It is important to be registered on the following platforms:
     os.environ["STRIPE_PUBLIC_KEY"] = "Your Stripe Public key"
     os.environ["STRIPE_SECRET_KEY"] = "Your Stripe Secret key"
     os.environ["STRIPE_WH_SECRET"] = "Your Stripe WH_Secret key"
+    os.environ["EMAIL_HOST_PASSWORD"] = "Your email app key"
+    os.environ["EMAIL_HOST_USER"] = "Your email"
+
 - Create the database from the models by typing in the terminal python3 manage.py 'makemigrations'. 
 - Followed by python3 manage.py migrate
 - Load the data fixtures by typing in the terminal: python3 manage.py 'loaddata' products
@@ -322,7 +325,7 @@ It is important to be registered on the following platforms:
 - Add `final-ms4-app.herokuapp.com, localhost' to ALLOWED_HOSTS in settings.py.
 - The app can now be deployed by typing in the terminal heroku git:remote -a vision-furniture and git push heroku master
 - On Heroku dashboard under "Deploy" set "Deployment method" to connect to Gitub.  
-- Under "Automatic Deploy" set "Enable automatic deploy" so the code is automatically deployed to Heroku and GitHub.  
+- Under "Automatic Deploy" set "Enable automatic deploy" so the code is automatically deployed to Heroku and GitHub.
 
 ## Adding Static Files to AWS  
 
