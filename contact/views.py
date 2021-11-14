@@ -37,6 +37,8 @@ def contact(request):
         with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
             smtp.login(EMAIL_HOST_USER, EMAIL_HOST_PASSWORD)
             smtp.send_message(msg)
+        
+        return render(request, 'contact/message_sent.html')
 
     return render(request, 'contact/contact.html')
 

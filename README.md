@@ -248,7 +248,7 @@ Thus, users can:
 
 # Testing  
 ---
--   [Test](https://github.com/Kpokc/ms4_final_project/testing.md)
+-   [Test](https://github.com/Kpokc/ms4_final_project/blob/main/testing.md)
 
 # Deployment  
 ---

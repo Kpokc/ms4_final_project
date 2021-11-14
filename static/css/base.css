@@ -458,7 +458,7 @@ p.carusel-text{
 
 #id_product_size {
     text-align: center;
-    width: 30% !important;
+    width: 60% !important;
 }
 
 #input-group {
@@ -501,6 +501,12 @@ p.carusel-text{
 
 
 /* --------------------------------- Media queries */
+
+@media (max-width: 1400px){
+    .small-img-container {
+        display: none!important;
+    } 
+}
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
@@ -608,7 +614,7 @@ p.carusel-text{
 
     /* Product detail */
     #input-group {
-        width: 100%;
+        width: 50%;
     }
 
     #id_product_size {
