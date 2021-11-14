@@ -5,7 +5,7 @@ $(window).on('load', function () {
     } else {
         var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'), {
             keyboard: false
-        })
+        });
         myModal.toggle();
         var now = new Date();
         var time = now.getTime();
@@ -51,7 +51,7 @@ $('.btt-link').click(function (e) {
         top: 0,
         behavior: "smooth"
     });
-})
+});
 
 
 

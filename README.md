@@ -1,11 +1,10 @@
 # Edible Bouquets
 <h1 align="center"><img src="https://github.com/Kpokc/ms4_final_project/blob/main/media/screens.png"/></h1>
-
 [View the live project here](https://final-ms4-app.herokuapp.com/)
-
-## Application for people, who is looking for special and outstanding gifts.
+### Application for people, who is looking for special and outstanding gifts.
 
 # Project description
+---
 “Edible Bouquets” is an e-commerce application that allows selling all kinds hand made edible bouquets. Fruit/veggies bouquets, chocolate bouquets, meat/cheese bouquets are novel and delicious gifts for any occasion, such as:
 |  |  |
 | ------ | ------ |
@@ -38,16 +37,20 @@ Thus, the Application will help to:
 -	Track the history of purchased products
 
 # User Stories  
+---
 ![User Stories](/media/userstories.PNG)
 
 # Wireframe
+---
 Initial wireframes for the project are shown below, representing the desktop, tablet, and mobile views.
 [Wireframe](/wireframe/)
 
 # Database Model
+---
 ![Database](/media/database.PNG)
 
 # UX
+---
 The purpose of the project is to design a responsive website for all kinds of devices (mostly for desktops and smartphones) for making navigation fast and efficient. User can easily define their actions and navigate easily.  
 Thus, users can:  
 
@@ -127,7 +130,7 @@ Thus, users can:
 13. User can reset the password in case if it is forgotten.  
 
 # Features  
-
+---
 ## Existing features  
 
 -	The website is responsive on all device sizes according to the initial goal.
@@ -198,7 +201,7 @@ Thus, users can:
 -	User possibility to leave comments and score a product.
 
 # Technologies Used
-
+---
 ## Languages Used  
 
 -   [HTML5](https://en.wikipedia.org/wiki/HTML5)
@@ -244,11 +247,11 @@ Thus, users can:
     I used this service to test code changes and the responsivity of the website.  
 
 # Testing  
-
-[View testing information here](/*.md)  
+---
+-   [Test](https://github.com/Kpokc/ms4_final_project/testing.md)
 
 # Deployment  
-
+---
 ## Needed Installation Prerequisites  
 
 The following technologies needed to be installed in the IDE environment to run the project.
@@ -286,9 +289,6 @@ It is important to be registered on the following platforms:
     os.environ["STRIPE_PUBLIC_KEY"] = "Your Stripe Public key"
     os.environ["STRIPE_SECRET_KEY"] = "Your Stripe Secret key"
     os.environ["STRIPE_WH_SECRET"] = "Your Stripe WH_Secret key"
-    os.environ["EMAIL_HOST_PASSWORD"] = "Your email app key"
-    os.environ["EMAIL_HOST_USER"] = "Your email"
-
 - Create the database from the models by typing in the terminal python3 manage.py 'makemigrations'. 
 - Followed by python3 manage.py migrate
 - Load the data fixtures by typing in the terminal: python3 manage.py 'loaddata' products
@@ -325,7 +325,7 @@ It is important to be registered on the following platforms:
 - Add `final-ms4-app.herokuapp.com, localhost' to ALLOWED_HOSTS in settings.py.
 - The app can now be deployed by typing in the terminal heroku git:remote -a vision-furniture and git push heroku master
 - On Heroku dashboard under "Deploy" set "Deployment method" to connect to Gitub.  
-- Under "Automatic Deploy" set "Enable automatic deploy" so the code is automatically deployed to Heroku and GitHub.
+- Under "Automatic Deploy" set "Enable automatic deploy" so the code is automatically deployed to Heroku and GitHub.  
 
 ## Adding Static Files to AWS  
 
@@ -404,7 +404,7 @@ It is important to be registered on the following platforms:
 
 
 # Credits  
-
+---
 ## Tutorials  
 
 - The application is mostly based on the Boutique Ado from the Code Insitute tutorial project.  
